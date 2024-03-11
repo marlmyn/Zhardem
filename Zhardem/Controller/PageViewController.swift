@@ -15,25 +15,28 @@ class PageViewController: UIPageViewController {
     let skipButton = UIButton()
     let nextButton = UIButton()
     let pageControl = UIPageControl()
-    //let cardView = UIView()
     let initialPage = 0
     
     //MARK: Animations
-    var pageControlLeftAnchor: NSLayoutConstraint?
+    var pageControlBottomAnchor: NSLayoutConstraint?
     var skipButtonTopAnchor: NSLayoutConstraint?
-    var nextButtonRightAnchor: NSLayoutConstraint?
-    var cardViewBottomAnchor: NSLayoutConstraint?
+    var nextButtonBottomAnchor: NSLayoutConstraint?
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    
         view.backgroundColor = UIColor(red: 0.9608, green: 0.9686, blue: 1.0, alpha: 1.0)
+        navigationController?.navigationBar.isHidden = true
+
         setup()
         style()
         layout()
     }
+    
+    
 
 }
+
 //MARK: Setup PageController
 extension PageViewController {
     
@@ -78,46 +81,43 @@ extension PageViewController {
         nextButton.setImage(UIImage(named: "arrowRight"), for: .normal)
         nextButton.addTarget(self, action: #selector(nextTapped(_:)), for: .primaryActionTriggered)
         
-//        cardView.translatesAutoresizingMaskIntoConstraints = false
-//        cardView.backgroundColor = UIColor(red: 0.9608, green: 0.9686, blue: 1.0, alpha: 1.0)
-//        cardView.layer.cornerRadius = 24
                 
     }
     
     func layout() {
-//        view.addSubview(cardView)
+        // view.addSubview(cardView)
         view.addSubview(pageControl)
         view.addSubview(skipButton)
         view.addSubview(nextButton)
         
         NSLayoutConstraint.activate([
             // Constraints for pageControl
-            pageControl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10),
             pageControl.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -60),
             pageControl.heightAnchor.constraint(equalToConstant: 20),
             
             // Constraints for nextButton
-            nextButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
+            // nextButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
             nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -40),
             nextButton.heightAnchor.constraint(equalToConstant: 60),
             nextButton.widthAnchor.constraint(equalToConstant: 60),
             
             // Constraints for skipButton
-            skipButton.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
-            skipButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor, constant: 0)
-            
-            // Constraints for cardView
-//            cardView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-//            cardView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-//            cardView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
-//            cardView.heightAnchor.constraint(equalToConstant: 280),
+            // skipButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
+            //skipButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor, constant: 0)
+            view.trailingAnchor.constraint(equalToSystemSpacingAfter: skipButton.trailingAnchor, multiplier: 2),
             
         ])
         
         //MARK: for Animations
-        pageControlLeftAnchor = pageControl.leftAnchor.constraint(equalToSystemSpacingAfter: view.safeAreaLayoutGuide.leftAnchor, multiplier: 2)
-        nextButtonRightAnchor = nextButton.rightAnchor.constraint(equalToSystemSpacingAfter: view.safeAreaLayoutGuide.rightAnchor, multiplier: 2)
         skipButtonTopAnchor = skipButton.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 2)
+        pageControlBottomAnchor = pageControl.leftAnchor.constraint(equalToSystemSpacingAfter: view.safeAreaLayoutGuide.leftAnchor, multiplier: 2)
+//        nextButtonBottomAnchor = view.bottomAnchor.constraint(equalToSystemSpacingBelow: nextButton.safeAreaLayoutGuide.bottomAnchor, multiplier: 2)
+        nextButtonBottomAnchor = nextButton.rightAnchor.constraint(equalToSystemSpacingAfter: view.safeAreaLayoutGuide.rightAnchor, multiplier: -2)
+        
+        skipButtonTopAnchor?.isActive = true
+        pageControlBottomAnchor?.isActive = true
+        nextButtonBottomAnchor?.isActive = true
+       
     
     }
     
@@ -172,17 +172,21 @@ extension PageViewController: UIPageViewControllerDelegate {
     }
     
     private func hideControls() {
-        pageControlLeftAnchor?.constant = -80
-        skipButtonTopAnchor?.constant = -80
-        nextButtonRightAnchor?.constant = -80
-        cardViewBottomAnchor?.constant = -80
+//        pageControlBottomAnchor?.constant = -80
+//        skipButtonTopAnchor?.constant = -80
+//        nextButtonBottomAnchor?.constant = -80
+        
+        pageControlBottomAnchor?.constant = -160 // Уменьшаем расстояние до нижнего края
+        skipButtonTopAnchor?.constant = -160 // Увеличиваем расстояние до верхнего края
+        nextButtonBottomAnchor?.constant = 160 // Уменьшаем расстояние до нижнего края
+        
+        
     }
     
     private func showControls() {
-        pageControlLeftAnchor?.constant = 16
+        pageControlBottomAnchor?.constant = 16
         skipButtonTopAnchor?.constant = 16
-        nextButtonRightAnchor?.constant = 16
-        cardViewBottomAnchor?.constant = 16
+        nextButtonBottomAnchor?.constant = 16
     }
 }
 
