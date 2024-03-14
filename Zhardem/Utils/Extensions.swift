@@ -11,19 +11,22 @@ extension UIView {
     
     func inputContainerView(image: UIImage, textField: UITextField) -> UIView {
         let view = UIView()
-        view.backgroundColor = UIColor(red: 224, green: 225, blue: 225, alpha: 1)
+        view.backgroundColor = UIColor(red: 0.898, green: 0.906, blue: 0.922, alpha: 1.0)
+        //UIColor(red: 0.900, green: 0.906, blue: 0.922, alpha: 1.0)
+        layer.borderColor = UIColor.systemGray3.cgColor
+        layer.borderWidth = 1.0
         view.setHeight(height: 56)
         view.layer.cornerRadius = 24
         let imageView = UIImageView()
         imageView.image = image
         view.addSubview(imageView)
         imageView.centerY(inView: view)
-        imageView.anchor(left: view.leftAnchor, paddingLeft: 12, width: 24, height: 24)
+        imageView.anchor(left: view.leftAnchor, paddingLeft: 16, width: 24, height: 24)
         
         view.addSubview(textField)
         textField.centerY(inView: view)
         textField.anchor(left: imageView.rightAnchor, bottom: view.bottomAnchor,
-                        right: view.rightAnchor, paddingLeft: 12, paddingBottom: 8)
+                        right: view.rightAnchor, paddingLeft: 16, paddingBottom: 8)
         return view
     }
     

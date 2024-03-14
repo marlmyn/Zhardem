@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A222D092BA0246D0096DC82 /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A222D082BA0246D0096DC82 /* AuthButton.swift */; };
+		3A222D0B2BA02FA90096DC82 /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A222D0A2BA02FA90096DC82 /* DividerView.swift */; };
+		3A222D0D2BA049500096DC82 /* SocialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A222D0C2BA049500096DC82 /* SocialButton.swift */; };
 		3A44CBD72B9075D0004A8B36 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A44CBD62B9075D0004A8B36 /* OnboardingViewController.swift */; };
 		3A44CBDB2B907719004A8B36 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A44CBDA2B907719004A8B36 /* PageViewController.swift */; };
 		3A44CBDD2B90807A004A8B36 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A44CBDC2B90807A004A8B36 /* MainViewController.swift */; };
@@ -14,6 +17,7 @@
 		3A879C1A2B9EF899000E283B /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A879C192B9EF899000E283B /* RegistrationController.swift */; };
 		3A879C1D2B9F4E49000E283B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A879C1C2B9F4E49000E283B /* Extensions.swift */; };
 		3A879C1F2B9F76D6000E283B /* CustomTextFiels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A879C1E2B9F76D6000E283B /* CustomTextFiels.swift */; };
+		3AAFD9892BA2EAA400DB4B96 /* CheckboxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAFD9882BA2EAA400DB4B96 /* CheckboxButton.swift */; };
 		3AE53AED2B8DB9ED00E66E46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE53AEC2B8DB9ED00E66E46 /* AppDelegate.swift */; };
 		3AE53AEF2B8DB9ED00E66E46 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE53AEE2B8DB9ED00E66E46 /* SceneDelegate.swift */; };
 		3AE53AF42B8DB9ED00E66E46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AE53AF22B8DB9ED00E66E46 /* Main.storyboard */; };
@@ -42,6 +46,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A222D082BA0246D0096DC82 /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
+		3A222D0A2BA02FA90096DC82 /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
+		3A222D0C2BA049500096DC82 /* SocialButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialButton.swift; sourceTree = "<group>"; };
 		3A44CBD62B9075D0004A8B36 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		3A44CBDA2B907719004A8B36 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		3A44CBDC2B90807A004A8B36 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +56,7 @@
 		3A879C192B9EF899000E283B /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		3A879C1C2B9F4E49000E283B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		3A879C1E2B9F76D6000E283B /* CustomTextFiels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFiels.swift; sourceTree = "<group>"; };
+		3AAFD9882BA2EAA400DB4B96 /* CheckboxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxButton.swift; sourceTree = "<group>"; };
 		3AE53AE92B8DB9ED00E66E46 /* Zhardem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zhardem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AE53AEC2B8DB9ED00E66E46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AE53AEE2B8DB9ED00E66E46 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -170,6 +178,10 @@
 			isa = PBXGroup;
 			children = (
 				3A879C1E2B9F76D6000E283B /* CustomTextFiels.swift */,
+				3A222D082BA0246D0096DC82 /* AuthButton.swift */,
+				3A222D0A2BA02FA90096DC82 /* DividerView.swift */,
+				3A222D0C2BA049500096DC82 /* SocialButton.swift */,
+				3AAFD9882BA2EAA400DB4B96 /* CheckboxButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -324,12 +336,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A222D0B2BA02FA90096DC82 /* DividerView.swift in Sources */,
 				3A44CBDB2B907719004A8B36 /* PageViewController.swift in Sources */,
+				3A222D092BA0246D0096DC82 /* AuthButton.swift in Sources */,
 				3A44CBD72B9075D0004A8B36 /* OnboardingViewController.swift in Sources */,
 				3A44CBDD2B90807A004A8B36 /* MainViewController.swift in Sources */,
 				3A879C1D2B9F4E49000E283B /* Extensions.swift in Sources */,
 				3AE53AED2B8DB9ED00E66E46 /* AppDelegate.swift in Sources */,
 				3AE53AEF2B8DB9ED00E66E46 /* SceneDelegate.swift in Sources */,
+				3A222D0D2BA049500096DC82 /* SocialButton.swift in Sources */,
+				3AAFD9892BA2EAA400DB4B96 /* CheckboxButton.swift in Sources */,
 				3A879C1F2B9F76D6000E283B /* CustomTextFiels.swift in Sources */,
 				3A879C1A2B9EF899000E283B /* RegistrationController.swift in Sources */,
 				3A879C182B9EF847000E283B /* LoginController.swift in Sources */,
