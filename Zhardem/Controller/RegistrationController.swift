@@ -60,9 +60,9 @@ class RegistrationController: UIViewController {
     
     private let signUpButton: AuthButton = {
         let button = AuthButton(type: .system)
+        button.title = "Sign Up"
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         button.addTarget(LoginController.self, action: #selector(handleSignUp), for: .touchUpInside)
-        button.setTitle("Sign Up", for: .normal)
         return button
     }()
     
@@ -77,19 +77,22 @@ class RegistrationController: UIViewController {
         attributedTitle.append(NSMutableAttributedString(string: "Sign In", attributes: boldAtts))
         
         buttonTwo.setAttributedTitle(attributedTitle, for: .normal)
+        
         return buttonTwo
     }()
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
         configureUI()
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(didTapCheckbox))
-        checkbox.addGestureRecognizer(gesture)
+        addTarget()
+     
 
     }
     
     //MARK: - Add Target
-  
+    func addTarget() {
+        alreadyHaveAccountButton.addTarget(self, action: #selector(showLoginController), for: .touchUpInside)
+    }
     
     //MARK: - Selectors
     @objc func didTapCheckbox() {
@@ -100,6 +103,10 @@ class RegistrationController: UIViewController {
         print("DEBUG: Handle Sign UP")
     }
     
+    @objc func showLoginController() {
+        navigationController?.popViewController(animated: true)
+    }
+    
     
     //MARK: - Helpers
     func configureUI() {
@@ -108,6 +115,9 @@ class RegistrationController: UIViewController {
         self.title = "Sign Up"
         view.backgroundColor = UIColor(red: 0.9608, green: 0.9686, blue: 1.0, alpha: 1.0)
         
+        //MARK: TapGestureRecognizer
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(didTapCheckbox))
+        checkbox.addGestureRecognizer(gesture)
         
         //MARK:  - Stack View
         let stack = UIStackView(arrangedSubviews: [fullNameContainerView,

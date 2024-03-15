@@ -9,6 +9,7 @@ import UIKit
 
 class PageViewController: UIPageViewController {
     
+    //MARK: - Properties
     var pages = [UIViewController]()
     
     //MARK: External controls
@@ -22,7 +23,7 @@ class PageViewController: UIPageViewController {
     var skipButtonTopAnchor: NSLayoutConstraint?
     var nextButtonBottomAnchor: NSLayoutConstraint?
 
-
+    //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 0.9608, green: 0.9686, blue: 1.0, alpha: 1.0)
@@ -32,8 +33,6 @@ class PageViewController: UIPageViewController {
         style()
         layout()
     }
-    
-    
 
 }
 

@@ -9,6 +9,12 @@ import UIKit
 
 class AuthButton: UIButton {
     
+    var title: String? {
+        didSet {
+            setTitle(title, for: .normal)
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         

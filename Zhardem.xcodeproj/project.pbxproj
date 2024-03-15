@@ -13,6 +13,7 @@
 		3A44CBD72B9075D0004A8B36 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A44CBD62B9075D0004A8B36 /* OnboardingViewController.swift */; };
 		3A44CBDB2B907719004A8B36 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A44CBDA2B907719004A8B36 /* PageViewController.swift */; };
 		3A44CBDD2B90807A004A8B36 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A44CBDC2B90807A004A8B36 /* MainViewController.swift */; };
+		3A469ADF2BA458F600B92E0E /* ResetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A469ADE2BA458F600B92E0E /* ResetPasswordController.swift */; };
 		3A879C182B9EF847000E283B /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A879C172B9EF847000E283B /* LoginController.swift */; };
 		3A879C1A2B9EF899000E283B /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A879C192B9EF899000E283B /* RegistrationController.swift */; };
 		3A879C1D2B9F4E49000E283B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A879C1C2B9F4E49000E283B /* Extensions.swift */; };
@@ -52,6 +53,7 @@
 		3A44CBD62B9075D0004A8B36 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		3A44CBDA2B907719004A8B36 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		3A44CBDC2B90807A004A8B36 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		3A469ADE2BA458F600B92E0E /* ResetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordController.swift; sourceTree = "<group>"; };
 		3A879C172B9EF847000E283B /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		3A879C192B9EF899000E283B /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		3A879C1C2B9F4E49000E283B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				3A44CBDC2B90807A004A8B36 /* MainViewController.swift */,
 				3A879C192B9EF899000E283B /* RegistrationController.swift */,
 				3A879C172B9EF847000E283B /* LoginController.swift */,
+				3A469ADE2BA458F600B92E0E /* ResetPasswordController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				3A879C1D2B9F4E49000E283B /* Extensions.swift in Sources */,
 				3AE53AED2B8DB9ED00E66E46 /* AppDelegate.swift in Sources */,
 				3AE53AEF2B8DB9ED00E66E46 /* SceneDelegate.swift in Sources */,
+				3A469ADF2BA458F600B92E0E /* ResetPasswordController.swift in Sources */,
 				3A222D0D2BA049500096DC82 /* SocialButton.swift in Sources */,
 				3AAFD9892BA2EAA400DB4B96 /* CheckboxButton.swift in Sources */,
 				3A879C1F2B9F76D6000E283B /* CustomTextFiels.swift in Sources */,

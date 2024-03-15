@@ -45,9 +45,9 @@ class LoginController: UIViewController {
     
     private let loginButton: AuthButton = {
         let button = AuthButton(type: .system)
+        button.title = "Login"
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         button.addTarget(LoginController.self, action: #selector(handleLogin), for: .touchUpInside)
-        button.setTitle("Login", for: .normal)
         return button
     }()
     
@@ -93,8 +93,8 @@ class LoginController: UIViewController {
     
     //MARK: - Add Target
     func addTarget() {
-        forgotPasswordButton.addTarget(self, action: #selector(showForgotPassword), for: .touchUpInside)
-        dontHaveAccountButton.addTarget(self, action: #selector(showDontHaveAccount), for: .touchUpInside)
+        forgotPasswordButton.addTarget(self, action: #selector(showResetPasswordVC), for: .touchUpInside)
+        dontHaveAccountButton.addTarget(self, action: #selector(showRegistration), for: .touchUpInside)
         googleLoginButton.addTarget(self, action: #selector(handleGoogleLogin), for: .touchUpInside)
         appleLoginButton.addTarget(self, action: #selector(handleAppleLogin), for: .touchUpInside)
         facebookLoginButton.addTarget(self, action: #selector(handleFacebookLogin), for: .touchUpInside)
@@ -105,12 +105,14 @@ class LoginController: UIViewController {
         print("DEBUG: Handle Login")
     }
     
-    @objc func showForgotPassword() {
-        print("DEBUG: Show Forgot Password")
+    @objc func showResetPasswordVC() {
+        let viewController = ResetPasswordController()
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
-    @objc func showDontHaveAccount() {
-        print("DEBUG: Don't Have an Account")
+    @objc func showRegistration() {
+        let viewController = RegistrationController()
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     @objc func handleGoogleLogin() {
