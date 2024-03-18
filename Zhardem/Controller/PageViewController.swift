@@ -84,10 +84,10 @@ extension PageViewController {
     }
     
     func layout() {
-        // view.addSubview(cardView)
         view.addSubview(pageControl)
         view.addSubview(skipButton)
         view.addSubview(nextButton)
+        
         
         NSLayoutConstraint.activate([
             // Constraints for pageControl
@@ -96,6 +96,8 @@ extension PageViewController {
             
             // Constraints for nextButton
             // nextButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
+//            nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -40),
+            
             nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -40),
             nextButton.heightAnchor.constraint(equalToConstant: 60),
             nextButton.widthAnchor.constraint(equalToConstant: 60),
@@ -103,7 +105,8 @@ extension PageViewController {
             // Constraints for skipButton
             // skipButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
             //skipButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor, constant: 0)
-            view.trailingAnchor.constraint(equalToSystemSpacingAfter: skipButton.trailingAnchor, multiplier: 2),
+            //view.trailingAnchor.constraint(equalToSystemSpacingAfter: skipButton.trailingAnchor, multiplier: 2),
+            skipButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -12)
             
         ])
         
@@ -111,7 +114,9 @@ extension PageViewController {
         skipButtonTopAnchor = skipButton.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 2)
         pageControlBottomAnchor = pageControl.leftAnchor.constraint(equalToSystemSpacingAfter: view.safeAreaLayoutGuide.leftAnchor, multiplier: 2)
 //        nextButtonBottomAnchor = view.bottomAnchor.constraint(equalToSystemSpacingBelow: nextButton.safeAreaLayoutGuide.bottomAnchor, multiplier: 2)
-        nextButtonBottomAnchor = nextButton.rightAnchor.constraint(equalToSystemSpacingAfter: view.safeAreaLayoutGuide.rightAnchor, multiplier: -2)
+        nextButtonBottomAnchor = nextButton.rightAnchor.constraint(equalToSystemSpacingAfter: view.safeAreaLayoutGuide.rightAnchor, multiplier: 2)
+        
+        
         
         skipButtonTopAnchor?.isActive = true
         pageControlBottomAnchor?.isActive = true

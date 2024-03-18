@@ -10,6 +10,8 @@ import UIKit
 class RegistrationController: UIViewController {
     
     //MARK: - Properties
+    private var viewModel = RegistrationViewModel()
+    
     private lazy var fullNameContainerView: UIView = {
         let view = UIView().inputContainerView(image: UIImage(named: "user")!, textField: fullNameTextField)
         view.setHeight(height: 56)
@@ -62,7 +64,6 @@ class RegistrationController: UIViewController {
         let button = AuthButton(type: .system)
         button.title = "Sign Up"
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-        button.addTarget(LoginController.self, action: #selector(handleSignUp), for: .touchUpInside)
         return button
     }()
     
@@ -83,14 +84,14 @@ class RegistrationController: UIViewController {
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
+        configureNotificationObserver()
         configureUI()
         addTarget()
-     
-
     }
     
     //MARK: - Add Target
     func addTarget() {
+        signUpButton.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
         alreadyHaveAccountButton.addTarget(self, action: #selector(showLoginController), for: .touchUpInside)
     }
     
@@ -107,8 +108,22 @@ class RegistrationController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    @objc func textDidChange(_ sender: UITextField) {
+        if sender == emailTextField {
+            viewModel.email = sender.text
+        } else if sender == passwordTextField {
+            viewModel.password = sender.text
+        } else {
+            viewModel.fullName = sender.text
+        }
+        
+        print("DEBUG: Form is valid \(viewModel.formIsValid)")
+        updateForm()
+    }
+    
     
     //MARK: - Helpers
+
     func configureUI() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = false
@@ -142,8 +157,20 @@ class RegistrationController: UIViewController {
         secondStack.spacing = 28
         view.addSubview(secondStack)
         secondStack.anchor(top: privacyStack.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 26, paddingLeft: 16, paddingRight: 16)
-    
-        
     }
+    
+    func configureNotificationObserver() {
+        emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        fullNameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+    }
+
 }
 
+
+// MARK: - FormViewModel
+extension RegistrationController: FormViewModel {
+    func updateForm() {
+        signUpButton.isEnabled = viewModel.shouldEnableButton
+    }
+}

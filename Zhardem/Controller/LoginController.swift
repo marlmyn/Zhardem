@@ -8,27 +8,29 @@
 import UIKit
 
 class LoginController: UIViewController {
-    //MARK: - Properties
-    //MARK: Email Container
+    // MARK: - Properties
+    private var viewModel = LoginViewModel()
+    
+    // MARK: Email Container
     private lazy var emailContainerView: UIView = {
         let view = UIView().inputContainerView(image: UIImage(named: "Email")!, textField: emailTextField)
         view.setHeight(height: 56)
         return view
     }()
     
-    //MARK: Password Container
+    // MARK: Password Container
     private lazy var passwordContainerView: UIView = {
         let view = UIView().inputContainerView(image: UIImage(named: "Password")!, textField: passwordTextField)
         view.setHeight(height: 56)
         return view
     }()
     
-    //MARK: Email TextField
+    // MARK: Email TextField
     private let emailTextField: UITextField = {
         return CustomTextFiels(placeholder: "Enter your email")
     }()
     
-    //MARK: Password TextField
+    // MARK: Password TextField
     private let passwordTextField: UITextField = {
         let tf = CustomTextFiels(placeholder: "Enter your password")
         tf.isSecureTextEntry = true
@@ -47,7 +49,6 @@ class LoginController: UIViewController {
         let button = AuthButton(type: .system)
         button.title = "Login"
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-        button.addTarget(LoginController.self, action: #selector(handleLogin), for: .touchUpInside)
         return button
     }()
     
@@ -83,16 +84,17 @@ class LoginController: UIViewController {
     
     
     
-    //MARK: - LifeCycle
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        configureNotificationObserver()
         configureUI()
         addTarget()
     }
     
-    //MARK: - Add Target
+    // MARK: - Add Target
     func addTarget() {
+        loginButton.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
         forgotPasswordButton.addTarget(self, action: #selector(showResetPasswordVC), for: .touchUpInside)
         dontHaveAccountButton.addTarget(self, action: #selector(showRegistration), for: .touchUpInside)
         googleLoginButton.addTarget(self, action: #selector(handleGoogleLogin), for: .touchUpInside)
@@ -125,13 +127,24 @@ class LoginController: UIViewController {
         print("DEBUG: Facebook Login")
     }
     
+    @objc func textDidChange(_ sender: UITextField) {
+        if sender == emailTextField {
+            viewModel.email = sender.text
+        } else {
+            viewModel.password = sender.text
+        }
+        
+        print("DEBUG: Form is valid \(viewModel.formIsValid)")
+        updateForm()
+    }
+    
     //MARK: - Helpers
     func configureUI() {
         navigationController?.navigationBar.isHidden = false
         self.title = "Login"
         view.backgroundColor = UIColor(red: 0.9608, green: 0.9686, blue: 1.0, alpha: 1.0)
         
-        //MARK: - Stack
+        //MARK: Stack
         let stack = UIStackView(arrangedSubviews: [emailContainerView, passwordContainerView])
         stack.axis = .vertical
         stack.distribution = .fillEqually
@@ -160,4 +173,15 @@ class LoginController: UIViewController {
        
     }
     
+    func configureNotificationObserver() {
+        emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+    }
+}
+
+// MARK: - FormViewModel
+extension LoginController: FormViewModel {
+    func updateForm() {
+        loginButton.isEnabled = viewModel.shouldEnableButton
+    }
 }

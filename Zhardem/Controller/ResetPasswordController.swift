@@ -10,6 +10,9 @@ import UIKit
 class ResetPasswordController: UIViewController {
     
     //MARK: - Properties
+    
+    private var viewModel = ResetPasswordViewModel()
+    
     private let textTitleLabel: UILabel = {
         let label = UILabel()
         label.text = "Forgot Your Password?"
@@ -59,22 +62,29 @@ class ResetPasswordController: UIViewController {
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureNotificationObserver()
         configureUI()
         addTarget()
     }
     
     //MARK: - Selectors
     @objc func handleResetPassword() {
-        
+        print(" DEBUG: Handle Reset Password")
+    }
+    
+    @objc func textDidChange(_ sender: UITextField) {
+        if sender == emailTextField {
+            viewModel.email = sender.text
+        }
+        updateForm()
     }
     
     //Mark: - Add Target
     func addTarget() {
-        resetPassword.addTarget(ResetPasswordController.self, action: #selector(handleResetPassword), for: .touchUpInside)
+        resetPassword.addTarget(self, action: #selector(handleResetPassword), for: .touchUpInside)
     }
     
     //MARK: - Helpers
-  
     func configureUI() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = false
@@ -96,7 +106,17 @@ class ResetPasswordController: UIViewController {
         secondStack.spacing = 24
         view.addSubview(secondStack)
         secondStack.anchor(top: stack.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 30, paddingLeft: 16, paddingRight: 16)
-       
-        
+    }
+    
+    func configureNotificationObserver() {
+        emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+    }
+}
+
+
+// MARK: - FormViewModel
+extension ResetPasswordController: FormViewModel {
+    func updateForm() {
+        resetPassword.isEnabled = viewModel.shouldEnableButton
     }
 }
