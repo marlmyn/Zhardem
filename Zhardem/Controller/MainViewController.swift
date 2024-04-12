@@ -110,7 +110,7 @@ extension MainViewController {
     @objc func didTapLogin() {
         let vc = LoginController()
         self.navigationController?.pushViewController(vc, animated: true)
-    }
+      }
     
     @objc func didTapSign() {
         let vc = RegistrationController()

@@ -9,27 +9,6 @@ import UIKit
 
 extension UIView {
     
-    func inputContainerView(image: UIImage, textField: UITextField) -> UIView {
-        let view = UIView()
-        view.backgroundColor = UIColor(red: 0.898, green: 0.906, blue: 0.922, alpha: 1.0)
-        //UIColor(red: 0.900, green: 0.906, blue: 0.922, alpha: 1.0)
-        layer.borderColor = UIColor.systemGray3.cgColor
-        layer.borderWidth = 1.0
-        view.setHeight(height: 56)
-        view.layer.cornerRadius = 24
-        let imageView = UIImageView()
-        imageView.image = image
-        view.addSubview(imageView)
-        imageView.centerY(inView: view)
-        imageView.anchor(left: view.leftAnchor, paddingLeft: 16, width: 24, height: 24)
-        
-        view.addSubview(textField)
-        textField.centerY(inView: view)
-        textField.anchor(left: imageView.rightAnchor, bottom: view.bottomAnchor,
-                        right: view.rightAnchor, paddingLeft: 16, paddingBottom: 8)
-        return view
-    }
-    
     func anchor(top: NSLayoutYAxisAnchor? = nil,
                 left: NSLayoutXAxisAnchor? = nil,
                 bottom: NSLayoutYAxisAnchor? = nil,
@@ -104,12 +83,102 @@ extension UIView {
     func fillSuperview() {
         translatesAutoresizingMaskIntoConstraints = false
         guard let superviewTopAnchor = superview?.topAnchor,
-        let superviewBottomAnchor = superview?.bottomAnchor,
-        let superviewLeadingAnchor = superview?.leadingAnchor,
-        let superviewTrailingAnchor =  superview?.trailingAnchor
+              let superviewBottomAnchor = superview?.bottomAnchor,
+              let superviewLeadingAnchor = superview?.leadingAnchor,
+              let superviewTrailingAnchor =  superview?.trailingAnchor
         else { return }
         
         anchor(top: superviewTopAnchor, left: superviewLeadingAnchor,
                bottom: superviewBottomAnchor, right: superviewTrailingAnchor)
+    }
+    
+    //  Container for auth
+    func inputContainerView(image: UIImage, textField: UITextField) -> UIView {
+        let view = UIView()
+        view.backgroundColor = UIColor(red: 0.898, green: 0.906, blue: 0.922, alpha: 1.0)
+        layer.borderColor = UIColor.systemGray3.cgColor
+        layer.borderWidth = 1.0
+        view.setHeight(height: 56)
+        view.layer.cornerRadius = 24
+        let imageView = UIImageView()
+        imageView.image = image
+        view.addSubview(imageView)
+        imageView.centerY(inView: view)
+        imageView.anchor(left: view.leftAnchor, paddingLeft: 16, width: 24, height: 24)
+        
+        view.addSubview(textField)
+        textField.centerY(inView: view)
+        textField.anchor(left: imageView.rightAnchor, bottom: view.bottomAnchor,
+                         right: view.rightAnchor, paddingLeft: 16, paddingBottom: 8)
+        return view
+    }
+    
+    //  Category
+    func categoryView(image: UIImage, label: UILabel) -> UIView {
+        let view = UIView()
+        
+        let imageView = UIImageView()
+        imageView.image = image
+        imageView.contentMode = .scaleAspectFill
+        view.addSubview(imageView)
+        
+        imageView.anchor(top: view.topAnchor, paddingTop: 8)
+        imageView.centerX(inView: view)
+        imageView.setDimensions(height: 40, width: 40)
+        
+        view.addSubview(label)
+        label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: 12)
+        
+        label.anchor(top: imageView.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 4, paddingLeft: 4, paddingBottom: 4, paddingRight: 4)
+        
+        return view
+    }
+    
+    //  Upcoming Schedule
+    func upcomingSchedule(imageDoctor: UIImage, imageBell: UIImage, calendarImg: UIImage, label: UILabel, labelText: UILabel) -> UIView {
+        let view = UIView()
+        view.backgroundColor = UIColor(red: 0.894, green: 0.969, blue: 1.0, alpha: 1.0)
+        layer.borderWidth = 1.0
+        view.setHeight(height: 140)
+        view.layer.cornerRadius = 10
+        
+        let doctorImages = UIImageView()
+        doctorImages.image = imageDoctor
+        doctorImages.contentMode = .scaleAspectFit
+        view.addSubview(doctorImages)
+        doctorImages.anchor(top: view.topAnchor, left: view.leftAnchor, paddingTop: 22, paddingLeft: 14, width: 80, height: 80)
+        
+        view.addSubview(label)
+        label.numberOfLines = 0
+        label.font = UIFont(name: "Montserrat", size: 20)
+        label.anchor(top: view.topAnchor, left: doctorImages.rightAnchor, right: view.rightAnchor,
+                     paddingTop: 22, paddingLeft: 16)
+        
+        let bellImages = UIImageView()
+        bellImages.image = imageBell
+        view.addSubview(bellImages)
+        bellImages.anchor(top: view.topAnchor, right: view.rightAnchor, paddingTop: 22, paddingRight: 16, width: 28, height: 28)
+        
+        let viewTwo = UIView()
+        viewTwo.backgroundColor = UIColor.white
+        layer.borderWidth = 1.0
+        viewTwo.setHeight(height: 30)
+        viewTwo.layer.cornerRadius = 8
+        let calendarImage = UIImageView()
+        calendarImage.image = calendarImg
+        viewTwo.addSubview(calendarImage)
+        calendarImage.centerY(inView: viewTwo)
+        calendarImage.anchor(left: viewTwo.leftAnchor, paddingLeft: 8, width: 20, height: 20)
+        
+        viewTwo.addSubview(labelText)
+        labelText.centerY(inView: viewTwo)
+        labelText.anchor(left: calendarImage.rightAnchor, bottom: viewTwo.bottomAnchor,
+                         right: viewTwo.rightAnchor,  paddingLeft: 8, paddingBottom: 8, paddingRight: 8)
+        
+        view.addSubview(viewTwo)
+        viewTwo.anchor(bottom: view.bottomAnchor, right: view.rightAnchor, paddingBottom: 8, paddingRight: 8)
+        
+        return view
     }
 }

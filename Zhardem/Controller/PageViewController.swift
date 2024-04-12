@@ -11,7 +11,7 @@ class PageViewController: UIPageViewController {
     
     //MARK: - Properties
     var pages = [UIViewController]()
-    
+
     //MARK: External controls
     let skipButton = UIButton()
     let nextButton = UIButton()

@@ -51,7 +51,7 @@ class ResetPasswordController: UIViewController {
     private let emailTextField: UITextField = {
         return CustomTextFiels(placeholder: "Enter your email")
     }()
-
+    
     private let resetPassword: AuthButton = {
         let button = AuthButton(type: .system)
         button.title = "Reset Password"
@@ -64,6 +64,7 @@ class ResetPasswordController: UIViewController {
         super.viewDidLoad()
         configureNotificationObserver()
         configureUI()
+        setupNavigationBar()
         addTarget()
     }
     
@@ -85,20 +86,30 @@ class ResetPasswordController: UIViewController {
     }
     
     //MARK: - Helpers
+    func setupNavigationBar() {
+        let backImage = UIImage(resource: .back)
+        let backButtonItem = UIBarButtonItem(image: backImage,
+                                             style: .plain,
+                                             target: navigationController,
+                                             action: #selector(navigationController?.popViewController(animated:)))
+        navigationItem.leftBarButtonItem = backButtonItem
+        navigationItem.leftBarButtonItem?.tintColor = UIColor.black
+    }
+    
+    
     func configureUI() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = false
         view.backgroundColor = UIColor(red: 0.9608, green: 0.9686, blue: 1.0, alpha: 1.0)
         
-        
-        //MARK:  - Stack View
+        //MARK:   Stack View
         let stack = UIStackView(arrangedSubviews: [textTitleLabel, subTitleLabel, segmentedControl])
         stack.axis = .vertical
         stack.distribution = .fillEqually
         stack.spacing = 16
         view.addSubview(stack)
         stack.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 20, paddingLeft: 16, paddingRight: 16)
-       
+        
         
         let secondStack = UIStackView(arrangedSubviews: [emailContainerView, resetPassword])
         secondStack.axis = .vertical

@@ -22,7 +22,7 @@ struct LoginViewModel: AuthenticationViewModel {
     
     var formIsValid: Bool {
         return email?.isEmpty == false
-           && password?.isEmpty == false
+        && password?.isEmpty == false
     }
     
     var shouldEnableButton: Bool {
@@ -37,8 +37,8 @@ struct RegistrationViewModel: AuthenticationViewModel {
     
     var formIsValid: Bool {
         return email?.isEmpty == false
-           && password?.isEmpty == false
-           && fullName?.isEmpty == false
+        && password?.isEmpty == false
+        && fullName?.isEmpty == false
     }
     
     var shouldEnableButton: Bool {
@@ -55,5 +55,5 @@ struct ResetPasswordViewModel: AuthenticationViewModel {
     
     var shouldEnableButton: Bool {
         return formIsValid
-    } 
+    }
 }

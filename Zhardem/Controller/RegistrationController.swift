@@ -11,6 +11,7 @@ class RegistrationController: UIViewController {
     
     //MARK: - Properties
     private var viewModel = RegistrationViewModel()
+    private var customAlert = AlertController()
     
     private lazy var fullNameContainerView: UIView = {
         let view = UIView().inputContainerView(image: UIImage(named: "user")!, textField: fullNameTextField)
@@ -84,8 +85,10 @@ class RegistrationController: UIViewController {
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
+        super.viewDidLoad()
         configureNotificationObserver()
         configureUI()
+        setupNavigationBar()
         addTarget()
     }
     
@@ -101,8 +104,21 @@ class RegistrationController: UIViewController {
     }
     
     @objc func handleSignUp() {
-        print("DEBUG: Handle Sign UP")
+        guard let fullName = fullNameTextField.text else { return }
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        
+        let registerModel = RegisterModel(fullName: fullName, email: email, password: password)
+        APIManager.shareInstance.callingRegisterAPI(register: registerModel) { (result, str) in
+            if result {
+                self.customAlert.showAlert(with: "Success", messages: str, buttonTitle: "Login", on: self)
+            } else {
+                print("Something error!")
+            }
+        }
+        print("Debug: \(fullName), \(email), \(password)")
     }
+    
     
     @objc func showLoginController() {
         navigationController?.popViewController(animated: true)
@@ -110,22 +126,30 @@ class RegistrationController: UIViewController {
     
     @objc func textDidChange(_ sender: UITextField) {
         if sender == emailTextField {
-            viewModel.email = sender.text
-        } else if sender == passwordTextField {
-            viewModel.password = sender.text
-        } else {
             viewModel.fullName = sender.text
+        } else if sender == passwordTextField {
+            viewModel.email = sender.text
+        } else {
+            viewModel.password = sender.text
         }
-        
-        print("DEBUG: Form is valid \(viewModel.formIsValid)")
+        //  print("DEBUG: Form is valid \(viewModel.formIsValid)")
         updateForm()
     }
     
     
     //MARK: - Helpers
-
+    func setupNavigationBar() {
+        let backImage = UIImage(resource: .back)
+        let backButtonItem = UIBarButtonItem(image: backImage,
+                                             style: .plain,
+                                             target: navigationController,
+                                             action: #selector(navigationController?.popViewController(animated:)))
+        navigationItem.leftBarButtonItem = backButtonItem
+        navigationItem.leftBarButtonItem?.tintColor = UIColor.black
+    }
+    
+    
     func configureUI() {
-        super.viewDidLoad()
         navigationController?.navigationBar.isHidden = false
         self.title = "Sign Up"
         view.backgroundColor = UIColor(red: 0.9608, green: 0.9686, blue: 1.0, alpha: 1.0)
@@ -134,29 +158,37 @@ class RegistrationController: UIViewController {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(didTapCheckbox))
         checkbox.addGestureRecognizer(gesture)
         
-        //MARK:  - Stack View
         let stack = UIStackView(arrangedSubviews: [fullNameContainerView,
-                                                   emailContainerView,                  passwordContainerView])
+                                                   emailContainerView, passwordContainerView])
         stack.axis = .vertical
         stack.distribution = .fillEqually
         stack.spacing = 16
         view.addSubview(stack)
-        stack.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 40, paddingLeft: 16, paddingRight: 16)
-       
+        stack.anchor(top: view.safeAreaLayoutGuide.topAnchor,
+                     left: view.leftAnchor,
+                     right:  view.rightAnchor,
+                     paddingTop: 40, paddingLeft: 16, paddingRight: 16)
+        
         
         let privacyStack = UIStackView(arrangedSubviews: [checkbox, privacyText])
         privacyStack.axis = .horizontal
         privacyStack.distribution = .fill
         privacyStack.spacing = 11
         view.addSubview(privacyStack)
-        privacyStack.anchor(top: stack.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 20, paddingLeft: 18, paddingRight: 18)
+        privacyStack.anchor(top: stack.bottomAnchor,
+                            left: view.leftAnchor,
+                            right: view.rightAnchor,
+                            paddingTop: 20, paddingLeft: 18, paddingRight: 18)
         
         
         let secondStack = UIStackView(arrangedSubviews: [signUpButton, alreadyHaveAccountButton])
         secondStack.axis = .vertical
         secondStack.spacing = 28
         view.addSubview(secondStack)
-        secondStack.anchor(top: privacyStack.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 26, paddingLeft: 16, paddingRight: 16)
+        secondStack.anchor(top: privacyStack.bottomAnchor,
+                           left: view.leftAnchor,
+                           right: view.rightAnchor,
+                           paddingTop: 26, paddingLeft: 16, paddingRight: 16)
     }
     
     func configureNotificationObserver() {
@@ -164,7 +196,7 @@ class RegistrationController: UIViewController {
         passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         fullNameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
     }
-
+    
 }
 
 

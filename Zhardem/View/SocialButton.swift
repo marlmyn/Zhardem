@@ -20,8 +20,6 @@ class SocialButton: UIButton {
         setTitle(title, for: .normal)
         setTitleColor(UIColor(red: 0, green: 0, blue: 0.5, alpha: 1), for: .normal)
         titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-        
-       // configuration.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 10, trailing: 10)
     }
     
     required init?(coder: NSCoder) {

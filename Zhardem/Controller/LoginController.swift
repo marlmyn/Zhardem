@@ -10,6 +10,7 @@ import UIKit
 class LoginController: UIViewController {
     // MARK: - Properties
     private var viewModel = LoginViewModel()
+    private var customAlert = AlertController()
     
     // MARK: Email Container
     private lazy var emailContainerView: UIView = {
@@ -42,7 +43,16 @@ class LoginController: UIViewController {
         button.setTitle("Forgot Password?", for: .normal)
         button.tintColor = UIColor(red: 0, green: 0, blue: 0.5, alpha: 1)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        button.setWidth(width: 120)
         return button
+    }()
+    
+    private let errorLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.textColor = UIColor.red
+        label.font = UIFont.systemFont(ofSize: 12)
+        return label
     }()
     
     private let loginButton: AuthButton = {
@@ -89,6 +99,7 @@ class LoginController: UIViewController {
         super.viewDidLoad()
         configureNotificationObserver()
         configureUI()
+        setupNavigationBar()
         addTarget()
     }
     
@@ -104,7 +115,20 @@ class LoginController: UIViewController {
     
     //MARK: - Selectors
     @objc func handleLogin() {
-        print("DEBUG: Handle Login")
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        
+        let modelLogin = LoginModel(email: email, password: password)
+        APIManager.shareInstance.callingLoginAPI(login: modelLogin) { (result, str) in
+            if result {
+//                self.customAlert.showAlert(with: "Yeay! Welcome Back", messages: str, buttonTitle: "Go To Home", on: self)
+                let vc = TabBarController()
+                self.navigationController?.pushViewController(vc, animated: true)
+            } else {
+                self.errorLabel.text = str
+            }
+        }
+        print("Debug: \(email), \(password)")
     }
     
     @objc func showResetPasswordVC() {
@@ -133,12 +157,20 @@ class LoginController: UIViewController {
         } else {
             viewModel.password = sender.text
         }
-        
-        print("DEBUG: Form is valid \(viewModel.formIsValid)")
         updateForm()
     }
     
     //MARK: - Helpers
+    func setupNavigationBar() {
+        let backImage = UIImage(resource: .back)
+        let backButtonItem = UIBarButtonItem(image: backImage,
+                                             style: .plain,
+                                             target: navigationController,
+                                             action: #selector(navigationController?.popViewController(animated:)))
+        navigationItem.leftBarButtonItem = backButtonItem
+        navigationItem.leftBarButtonItem?.tintColor = UIColor.black
+    }
+    
     func configureUI() {
         navigationController?.navigationBar.isHidden = false
         self.title = "Login"
@@ -150,27 +182,43 @@ class LoginController: UIViewController {
         stack.distribution = .fillEqually
         stack.spacing = 16
         view.addSubview(stack)
-        stack.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 40, paddingLeft: 16, paddingRight: 16)
-        
-        view.addSubview(forgotPasswordButton)
-        forgotPasswordButton.anchor(top: stack.bottomAnchor, right: view.rightAnchor, paddingTop: 12, paddingRight: 16)
+        stack.anchor(top: view.safeAreaLayoutGuide.topAnchor,
+                     left: view.leftAnchor,
+                     right: view.rightAnchor,
+                     paddingTop: 40, paddingLeft: 16, paddingRight: 16)
         
         //MARK: Second Stack
-        let secondStack = UIStackView(arrangedSubviews: [loginButton, dontHaveAccountButton,                                                   dividerView, googleLoginButton,                                                       appleLoginButton, facebookLoginButton])
-        secondStack.axis = .vertical
-        secondStack.spacing = 28
-        view.addSubview(secondStack)
-        secondStack.anchor(top: forgotPasswordButton.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 26, paddingLeft: 16, paddingRight: 16)
+        let stackSecond = UIStackView(arrangedSubviews: [errorLabel, forgotPasswordButton])
+        stackSecond.axis = .horizontal
+        stackSecond.spacing = 8
+        view.addSubview(stackSecond)
+        stackSecond.anchor(top: stack.bottomAnchor,
+                           left: view.leftAnchor,
+                           right: view.rightAnchor,
+                           paddingTop: 12, paddingLeft: 16, paddingRight: 16)
+        
+        //MARK: Third Stack
+        let stackThird = UIStackView(arrangedSubviews: [loginButton, dontHaveAccountButton,                                                   dividerView, googleLoginButton,                                                       appleLoginButton, facebookLoginButton])
+        stackThird.axis = .vertical
+        stackThird.spacing = 28
+        view.addSubview(stackThird)
+        stackThird.anchor(top: forgotPasswordButton.bottomAnchor,
+                          left: view.leftAnchor,
+                          right: view.rightAnchor,
+                          paddingTop: 26, paddingLeft: 16, paddingRight: 16)
         
         
         //MARK: Social Stack
-        let socialStack = UIStackView(arrangedSubviews: [googleLoginButton,                                                                  appleLoginButton,
-                                                     facebookLoginButton])
+        let socialStack = UIStackView(arrangedSubviews: [googleLoginButton,                                                                      appleLoginButton,
+                                                         facebookLoginButton])
         socialStack.axis = .vertical
         socialStack.spacing = 18
         view.addSubview(socialStack)
-        socialStack.anchor(top: secondStack.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 40, paddingLeft: 16, paddingRight: 16)
-       
+        socialStack.anchor(top: stackThird.bottomAnchor,
+                           left: view.leftAnchor,
+                           right: view.rightAnchor,
+                           paddingTop: 40, paddingLeft: 16, paddingRight: 16)
+        
     }
     
     func configureNotificationObserver() {

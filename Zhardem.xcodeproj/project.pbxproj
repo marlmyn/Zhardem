@@ -10,20 +10,37 @@
 		3A222D092BA0246D0096DC82 /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A222D082BA0246D0096DC82 /* AuthButton.swift */; };
 		3A222D0B2BA02FA90096DC82 /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A222D0A2BA02FA90096DC82 /* DividerView.swift */; };
 		3A222D0D2BA049500096DC82 /* SocialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A222D0C2BA049500096DC82 /* SocialButton.swift */; };
+		3A2BCFF72BC01107007AE5B0 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2BCFF62BC01107007AE5B0 /* AlertController.swift */; };
 		3A2DC50D2BA8A1180095D279 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2DC50C2BA8A1180095D279 /* AuthenticationViewModel.swift */; };
+		3A3B1C8B2BBC664200B5AD45 /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B1C8A2BBC664200B5AD45 /* RegisterModel.swift */; };
+		3A3B1C8D2BBC670400B5AD45 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B1C8C2BBC670400B5AD45 /* APIManager.swift */; };
+		3A3B1C902BBC6A0100B5AD45 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3A3B1C8F2BBC6A0100B5AD45 /* Alamofire */; };
+		3A3B1C922BBC6A0100B5AD45 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 3A3B1C912BBC6A0100B5AD45 /* AlamofireDynamic */; };
+		3A3B1C952BBC6C4E00B5AD45 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B1C942BBC6C4E00B5AD45 /* API.swift */; };
+		3A3B1C972BBC83F400B5AD45 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B1C962BBC83F400B5AD45 /* LoginModel.swift */; };
 		3A44CBD72B9075D0004A8B36 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A44CBD62B9075D0004A8B36 /* OnboardingViewController.swift */; };
 		3A44CBDB2B907719004A8B36 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A44CBDA2B907719004A8B36 /* PageViewController.swift */; };
 		3A44CBDD2B90807A004A8B36 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A44CBDC2B90807A004A8B36 /* MainViewController.swift */; };
 		3A469ADF2BA458F600B92E0E /* ResetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A469ADE2BA458F600B92E0E /* ResetPasswordController.swift */; };
+		3A6802122BC56154009E56DB /* TextLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6802112BC56154009E56DB /* TextLabel.swift */; };
+		3A6802142BC5A7EA009E56DB /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6802132BC5A7EA009E56DB /* ImageView.swift */; };
+		3A6802182BC5A97C009E56DB /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6802172BC5A97C009E56DB /* Images.swift */; };
 		3A879C182B9EF847000E283B /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A879C172B9EF847000E283B /* LoginController.swift */; };
 		3A879C1A2B9EF899000E283B /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A879C192B9EF899000E283B /* RegistrationController.swift */; };
 		3A879C1D2B9F4E49000E283B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A879C1C2B9F4E49000E283B /* Extensions.swift */; };
 		3A879C1F2B9F76D6000E283B /* CustomTextFiels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A879C1E2B9F76D6000E283B /* CustomTextFiels.swift */; };
 		3AAFD9892BA2EAA400DB4B96 /* CheckboxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAFD9882BA2EAA400DB4B96 /* CheckboxButton.swift */; };
+		3ADAC4682BBB372700EA06FB /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADAC4672BBB372700EA06FB /* HomeController.swift */; };
+		3ADFCF322BC45C7D008503C4 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADFCF312BC45C7D008503C4 /* Router.swift */; };
+		3ADFCF362BC46ACF008503C4 /* MessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADFCF352BC46ACF008503C4 /* MessageController.swift */; };
+		3ADFCF382BC46AE2008503C4 /* ScheduleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADFCF372BC46AE2008503C4 /* ScheduleController.swift */; };
+		3ADFCF3A2BC46AF5008503C4 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADFCF392BC46AF5008503C4 /* ProfileController.swift */; };
+		3ADFCF3C2BC471C5008503C4 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADFCF3B2BC471C5008503C4 /* TabBarController.swift */; };
+		3ADFCF3E2BC47D25008503C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ADFCF3D2BC47D25008503C4 /* Assets.xcassets */; };
+		3AE0ED6E2BC7D95E0072CAD6 /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE0ED6D2BC7D95E0072CAD6 /* LocationController.swift */; };
 		3AE53AED2B8DB9ED00E66E46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE53AEC2B8DB9ED00E66E46 /* AppDelegate.swift */; };
 		3AE53AEF2B8DB9ED00E66E46 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE53AEE2B8DB9ED00E66E46 /* SceneDelegate.swift */; };
 		3AE53AF42B8DB9ED00E66E46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AE53AF22B8DB9ED00E66E46 /* Main.storyboard */; };
-		3AE53AF62B8DB9EE00E66E46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AE53AF52B8DB9EE00E66E46 /* Assets.xcassets */; };
 		3AE53AF92B8DB9EE00E66E46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AE53AF72B8DB9EE00E66E46 /* LaunchScreen.storyboard */; };
 		3AE53B042B8DB9EE00E66E46 /* ZhardemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE53B032B8DB9EE00E66E46 /* ZhardemTests.swift */; };
 		3AE53B0E2B8DB9EE00E66E46 /* ZhardemUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE53B0D2B8DB9EE00E66E46 /* ZhardemUITests.swift */; };
@@ -51,21 +68,36 @@
 		3A222D082BA0246D0096DC82 /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
 		3A222D0A2BA02FA90096DC82 /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
 		3A222D0C2BA049500096DC82 /* SocialButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialButton.swift; sourceTree = "<group>"; };
+		3A2BCFF62BC01107007AE5B0 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		3A2DC50C2BA8A1180095D279 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		3A3B1C8A2BBC664200B5AD45 /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
+		3A3B1C8C2BBC670400B5AD45 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		3A3B1C942BBC6C4E00B5AD45 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		3A3B1C962BBC83F400B5AD45 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		3A44CBD62B9075D0004A8B36 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		3A44CBDA2B907719004A8B36 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		3A44CBDC2B90807A004A8B36 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3A469ADE2BA458F600B92E0E /* ResetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordController.swift; sourceTree = "<group>"; };
+		3A6802112BC56154009E56DB /* TextLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLabel.swift; sourceTree = "<group>"; };
+		3A6802132BC5A7EA009E56DB /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		3A6802172BC5A97C009E56DB /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		3A879C172B9EF847000E283B /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		3A879C192B9EF899000E283B /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		3A879C1C2B9F4E49000E283B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		3A879C1E2B9F76D6000E283B /* CustomTextFiels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFiels.swift; sourceTree = "<group>"; };
 		3AAFD9882BA2EAA400DB4B96 /* CheckboxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxButton.swift; sourceTree = "<group>"; };
+		3ADAC4672BBB372700EA06FB /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		3ADFCF312BC45C7D008503C4 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		3ADFCF352BC46ACF008503C4 /* MessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageController.swift; sourceTree = "<group>"; };
+		3ADFCF372BC46AE2008503C4 /* ScheduleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleController.swift; sourceTree = "<group>"; };
+		3ADFCF392BC46AF5008503C4 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		3ADFCF3B2BC471C5008503C4 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		3ADFCF3D2BC47D25008503C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3AE0ED6D2BC7D95E0072CAD6 /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		3AE53AE92B8DB9ED00E66E46 /* Zhardem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zhardem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AE53AEC2B8DB9ED00E66E46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AE53AEE2B8DB9ED00E66E46 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3AE53AF32B8DB9ED00E66E46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3AE53AF52B8DB9EE00E66E46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3AE53AF82B8DB9EE00E66E46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3AE53AFA2B8DB9EE00E66E46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3AE53AFF2B8DB9EE00E66E46 /* ZhardemTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZhardemTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +112,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A3B1C902BBC6A0100B5AD45 /* Alamofire in Frameworks */,
+				3A3B1C922BBC6A0100B5AD45 /* AlamofireDynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,12 +134,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A3B1C932BBC6C2600B5AD45 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				3A3B1C942BBC6C4E00B5AD45 /* API.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		3A879C1B2B9F4E13000E283B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				3A879C1C2B9F4E49000E283B /* Extensions.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		3ADFCF2F2BC447EE008503C4 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3A6802172BC5A97C009E56DB /* Images.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		3ADFCF302BC45BA4008503C4 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				3ADFCF312BC45C7D008503C4 /* Router.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		3AE53AE02B8DB9ED00E66E46 = {
@@ -131,16 +189,19 @@
 		3AE53AEB2B8DB9ED00E66E46 /* Zhardem */ = {
 			isa = PBXGroup;
 			children = (
+				3ADFCF302BC45BA4008503C4 /* Router */,
+				3ADFCF2F2BC447EE008503C4 /* Helpers */,
 				3A879C1B2B9F4E13000E283B /* Utils */,
-				3AFDA6C32B8F45DF007E135B /* API */,
+				3A3B1C932BBC6C2600B5AD45 /* API */,
+				3AFDA6C32B8F45DF007E135B /* APIManager */,
 				3AFDA6BF2B8F452C007E135B /* Model */,
 				3AFDA6C12B8F457B007E135B /* View */,
 				3AFDA6C02B8F4533007E135B /* ViewModel */,
 				3AFDA6C22B8F4592007E135B /* Controller */,
 				3AE53AEC2B8DB9ED00E66E46 /* AppDelegate.swift */,
 				3AE53AEE2B8DB9ED00E66E46 /* SceneDelegate.swift */,
+				3ADFCF3D2BC47D25008503C4 /* Assets.xcassets */,
 				3AE53AF22B8DB9ED00E66E46 /* Main.storyboard */,
-				3AE53AF52B8DB9EE00E66E46 /* Assets.xcassets */,
 				3AE53AF72B8DB9EE00E66E46 /* LaunchScreen.storyboard */,
 				3AE53AFA2B8DB9EE00E66E46 /* Info.plist */,
 			);
@@ -167,6 +228,8 @@
 		3AFDA6BF2B8F452C007E135B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3A3B1C8A2BBC664200B5AD45 /* RegisterModel.swift */,
+				3A3B1C962BBC83F400B5AD45 /* LoginModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -187,6 +250,8 @@
 				3A222D0A2BA02FA90096DC82 /* DividerView.swift */,
 				3A222D0C2BA049500096DC82 /* SocialButton.swift */,
 				3AAFD9882BA2EAA400DB4B96 /* CheckboxButton.swift */,
+				3A6802112BC56154009E56DB /* TextLabel.swift */,
+				3A6802132BC5A7EA009E56DB /* ImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -200,15 +265,23 @@
 				3A879C192B9EF899000E283B /* RegistrationController.swift */,
 				3A879C172B9EF847000E283B /* LoginController.swift */,
 				3A469ADE2BA458F600B92E0E /* ResetPasswordController.swift */,
+				3A2BCFF62BC01107007AE5B0 /* AlertController.swift */,
+				3ADAC4672BBB372700EA06FB /* HomeController.swift */,
+				3ADFCF352BC46ACF008503C4 /* MessageController.swift */,
+				3ADFCF372BC46AE2008503C4 /* ScheduleController.swift */,
+				3ADFCF392BC46AF5008503C4 /* ProfileController.swift */,
+				3ADFCF3B2BC471C5008503C4 /* TabBarController.swift */,
+				3AE0ED6D2BC7D95E0072CAD6 /* LocationController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		3AFDA6C32B8F45DF007E135B /* API */ = {
+		3AFDA6C32B8F45DF007E135B /* APIManager */ = {
 			isa = PBXGroup;
 			children = (
+				3A3B1C8C2BBC670400B5AD45 /* APIManager.swift */,
 			);
-			path = API;
+			path = APIManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,6 +300,10 @@
 			dependencies = (
 			);
 			name = Zhardem;
+			packageProductDependencies = (
+				3A3B1C8F2BBC6A0100B5AD45 /* Alamofire */,
+				3A3B1C912BBC6A0100B5AD45 /* AlamofireDynamic */,
+			);
 			productName = Zhardem;
 			productReference = 3AE53AE92B8DB9ED00E66E46 /* Zhardem.app */;
 			productType = "com.apple.product-type.application";
@@ -299,6 +376,9 @@
 				Base,
 			);
 			mainGroup = 3AE53AE02B8DB9ED00E66E46;
+			packageReferences = (
+				3A3B1C8E2BBC6A0100B5AD45 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 3AE53AEA2B8DB9ED00E66E46 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -316,7 +396,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AE53AF92B8DB9EE00E66E46 /* LaunchScreen.storyboard in Resources */,
-				3AE53AF62B8DB9EE00E66E46 /* Assets.xcassets in Resources */,
+				3ADFCF3E2BC47D25008503C4 /* Assets.xcassets in Resources */,
 				3AE53AF42B8DB9ED00E66E46 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,20 +422,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ADFCF322BC45C7D008503C4 /* Router.swift in Sources */,
+				3ADFCF3C2BC471C5008503C4 /* TabBarController.swift in Sources */,
 				3A222D0B2BA02FA90096DC82 /* DividerView.swift in Sources */,
+				3A3B1C952BBC6C4E00B5AD45 /* API.swift in Sources */,
 				3A44CBDB2B907719004A8B36 /* PageViewController.swift in Sources */,
 				3A222D092BA0246D0096DC82 /* AuthButton.swift in Sources */,
+				3ADFCF3A2BC46AF5008503C4 /* ProfileController.swift in Sources */,
+				3A2BCFF72BC01107007AE5B0 /* AlertController.swift in Sources */,
 				3A44CBD72B9075D0004A8B36 /* OnboardingViewController.swift in Sources */,
+				3A3B1C972BBC83F400B5AD45 /* LoginModel.swift in Sources */,
+				3A6802182BC5A97C009E56DB /* Images.swift in Sources */,
 				3A44CBDD2B90807A004A8B36 /* MainViewController.swift in Sources */,
 				3A879C1D2B9F4E49000E283B /* Extensions.swift in Sources */,
+				3A6802142BC5A7EA009E56DB /* ImageView.swift in Sources */,
 				3A2DC50D2BA8A1180095D279 /* AuthenticationViewModel.swift in Sources */,
 				3AE53AED2B8DB9ED00E66E46 /* AppDelegate.swift in Sources */,
 				3AE53AEF2B8DB9ED00E66E46 /* SceneDelegate.swift in Sources */,
+				3A6802122BC56154009E56DB /* TextLabel.swift in Sources */,
 				3A469ADF2BA458F600B92E0E /* ResetPasswordController.swift in Sources */,
 				3A222D0D2BA049500096DC82 /* SocialButton.swift in Sources */,
 				3AAFD9892BA2EAA400DB4B96 /* CheckboxButton.swift in Sources */,
+				3ADFCF382BC46AE2008503C4 /* ScheduleController.swift in Sources */,
+				3A3B1C8D2BBC670400B5AD45 /* APIManager.swift in Sources */,
+				3ADAC4682BBB372700EA06FB /* HomeController.swift in Sources */,
+				3ADFCF362BC46ACF008503C4 /* MessageController.swift in Sources */,
+				3A3B1C8B2BBC664200B5AD45 /* RegisterModel.swift in Sources */,
 				3A879C1F2B9F76D6000E283B /* CustomTextFiels.swift in Sources */,
 				3A879C1A2B9EF899000E283B /* RegistrationController.swift in Sources */,
+				3AE0ED6E2BC7D95E0072CAD6 /* LocationController.swift in Sources */,
 				3A879C182B9EF847000E283B /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -697,6 +792,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3A3B1C8E2BBC6A0100B5AD45 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3A3B1C8F2BBC6A0100B5AD45 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3A3B1C8E2BBC6A0100B5AD45 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		3A3B1C912BBC6A0100B5AD45 /* AlamofireDynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3A3B1C8E2BBC6A0100B5AD45 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = AlamofireDynamic;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3AE53AE12B8DB9ED00E66E46 /* Project object */;
 }
