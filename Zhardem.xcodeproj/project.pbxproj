@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A09CD912BCA6AFB0036E9D6 /* DoctorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A09CD902BCA6AFB0036E9D6 /* DoctorModel.swift */; };
+		3A09CD932BCA6CB30036E9D6 /* DoctorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A09CD922BCA6CB30036E9D6 /* DoctorCollectionViewCell.swift */; };
+		3A09CD952BCA6FAD0036E9D6 /* DoctorCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A09CD942BCA6FAD0036E9D6 /* DoctorCollectionView.swift */; };
 		3A222D092BA0246D0096DC82 /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A222D082BA0246D0096DC82 /* AuthButton.swift */; };
 		3A222D0B2BA02FA90096DC82 /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A222D0A2BA02FA90096DC82 /* DividerView.swift */; };
 		3A222D0D2BA049500096DC82 /* SocialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A222D0C2BA049500096DC82 /* SocialButton.swift */; };
 		3A2BCFF72BC01107007AE5B0 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2BCFF62BC01107007AE5B0 /* AlertController.swift */; };
 		3A2DC50D2BA8A1180095D279 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2DC50C2BA8A1180095D279 /* AuthenticationViewModel.swift */; };
+		3A35D5642BC9AA1800A8B974 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A35D5632BC9AA1800A8B974 /* UIColor.swift */; };
 		3A3B1C8B2BBC664200B5AD45 /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B1C8A2BBC664200B5AD45 /* RegisterModel.swift */; };
 		3A3B1C8D2BBC670400B5AD45 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B1C8C2BBC670400B5AD45 /* APIManager.swift */; };
 		3A3B1C902BBC6A0100B5AD45 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3A3B1C8F2BBC6A0100B5AD45 /* Alamofire */; };
@@ -30,6 +34,7 @@
 		3A879C1D2B9F4E49000E283B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A879C1C2B9F4E49000E283B /* Extensions.swift */; };
 		3A879C1F2B9F76D6000E283B /* CustomTextFiels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A879C1E2B9F76D6000E283B /* CustomTextFiels.swift */; };
 		3AAFD9892BA2EAA400DB4B96 /* CheckboxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAFD9882BA2EAA400DB4B96 /* CheckboxButton.swift */; };
+		3AC9AAF42BCD895100CC3218 /* DoctorListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC9AAF32BCD895100CC3218 /* DoctorListController.swift */; };
 		3ADAC4682BBB372700EA06FB /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADAC4672BBB372700EA06FB /* HomeController.swift */; };
 		3ADFCF322BC45C7D008503C4 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADFCF312BC45C7D008503C4 /* Router.swift */; };
 		3ADFCF362BC46ACF008503C4 /* MessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADFCF352BC46ACF008503C4 /* MessageController.swift */; };
@@ -65,11 +70,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A09CD902BCA6AFB0036E9D6 /* DoctorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorModel.swift; sourceTree = "<group>"; };
+		3A09CD922BCA6CB30036E9D6 /* DoctorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorCollectionViewCell.swift; sourceTree = "<group>"; };
+		3A09CD942BCA6FAD0036E9D6 /* DoctorCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorCollectionView.swift; sourceTree = "<group>"; };
 		3A222D082BA0246D0096DC82 /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
 		3A222D0A2BA02FA90096DC82 /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
 		3A222D0C2BA049500096DC82 /* SocialButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialButton.swift; sourceTree = "<group>"; };
 		3A2BCFF62BC01107007AE5B0 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		3A2DC50C2BA8A1180095D279 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		3A35D5632BC9AA1800A8B974 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		3A3B1C8A2BBC664200B5AD45 /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
 		3A3B1C8C2BBC670400B5AD45 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		3A3B1C942BBC6C4E00B5AD45 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -86,6 +95,7 @@
 		3A879C1C2B9F4E49000E283B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		3A879C1E2B9F76D6000E283B /* CustomTextFiels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFiels.swift; sourceTree = "<group>"; };
 		3AAFD9882BA2EAA400DB4B96 /* CheckboxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxButton.swift; sourceTree = "<group>"; };
+		3AC9AAF32BCD895100CC3218 /* DoctorListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorListController.swift; sourceTree = "<group>"; };
 		3ADAC4672BBB372700EA06FB /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		3ADFCF312BC45C7D008503C4 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		3ADFCF352BC46ACF008503C4 /* MessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageController.swift; sourceTree = "<group>"; };
@@ -154,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				3A6802172BC5A97C009E56DB /* Images.swift */,
+				3A35D5632BC9AA1800A8B974 /* UIColor.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -230,6 +241,7 @@
 			children = (
 				3A3B1C8A2BBC664200B5AD45 /* RegisterModel.swift */,
 				3A3B1C962BBC83F400B5AD45 /* LoginModel.swift */,
+				3A09CD902BCA6AFB0036E9D6 /* DoctorModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -267,6 +279,9 @@
 				3A469ADE2BA458F600B92E0E /* ResetPasswordController.swift */,
 				3A2BCFF62BC01107007AE5B0 /* AlertController.swift */,
 				3ADAC4672BBB372700EA06FB /* HomeController.swift */,
+				3A09CD942BCA6FAD0036E9D6 /* DoctorCollectionView.swift */,
+				3A09CD922BCA6CB30036E9D6 /* DoctorCollectionViewCell.swift */,
+				3AC9AAF32BCD895100CC3218 /* DoctorListController.swift */,
 				3ADFCF352BC46ACF008503C4 /* MessageController.swift */,
 				3ADFCF372BC46AE2008503C4 /* ScheduleController.swift */,
 				3ADFCF392BC46AF5008503C4 /* ProfileController.swift */,
@@ -423,8 +438,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3ADFCF322BC45C7D008503C4 /* Router.swift in Sources */,
+				3A09CD932BCA6CB30036E9D6 /* DoctorCollectionViewCell.swift in Sources */,
 				3ADFCF3C2BC471C5008503C4 /* TabBarController.swift in Sources */,
 				3A222D0B2BA02FA90096DC82 /* DividerView.swift in Sources */,
+				3AC9AAF42BCD895100CC3218 /* DoctorListController.swift in Sources */,
 				3A3B1C952BBC6C4E00B5AD45 /* API.swift in Sources */,
 				3A44CBDB2B907719004A8B36 /* PageViewController.swift in Sources */,
 				3A222D092BA0246D0096DC82 /* AuthButton.swift in Sources */,
@@ -443,6 +460,7 @@
 				3A469ADF2BA458F600B92E0E /* ResetPasswordController.swift in Sources */,
 				3A222D0D2BA049500096DC82 /* SocialButton.swift in Sources */,
 				3AAFD9892BA2EAA400DB4B96 /* CheckboxButton.swift in Sources */,
+				3A35D5642BC9AA1800A8B974 /* UIColor.swift in Sources */,
 				3ADFCF382BC46AE2008503C4 /* ScheduleController.swift in Sources */,
 				3A3B1C8D2BBC670400B5AD45 /* APIManager.swift in Sources */,
 				3ADAC4682BBB372700EA06FB /* HomeController.swift in Sources */,
@@ -452,6 +470,8 @@
 				3A879C1A2B9EF899000E283B /* RegistrationController.swift in Sources */,
 				3AE0ED6E2BC7D95E0072CAD6 /* LocationController.swift in Sources */,
 				3A879C182B9EF847000E283B /* LoginController.swift in Sources */,
+				3A09CD912BCA6AFB0036E9D6 /* DoctorModel.swift in Sources */,
+				3A09CD952BCA6FAD0036E9D6 /* DoctorCollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

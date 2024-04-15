@@ -76,7 +76,7 @@ class AlertController: NSObject {
         let button = UIButton(frame: CGRect(x: 80, y: 290, width: 180, height: 56))
         button.setTitle(buttonTitle, for: .normal)
         button.layer.cornerRadius = 25
-        button.backgroundColor = UIColor(red: 0.7255, green: 0.8627, blue: 0.9490, alpha: 1.0)
+        button.backgroundColor = Color.authButton
         button.addTarget(self, action: #selector(dissmissAlert), for: .touchUpInside)
         alertView.addSubview(button)
 

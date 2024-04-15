@@ -41,7 +41,7 @@ class LoginController: UIViewController {
     private let forgotPasswordButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Forgot Password?", for: .normal)
-        button.tintColor = UIColor(red: 0, green: 0, blue: 0.5, alpha: 1)
+        button.tintColor = Color.textColor
         button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         button.setWidth(width: 120)
         return button
@@ -174,7 +174,7 @@ class LoginController: UIViewController {
     func configureUI() {
         navigationController?.navigationBar.isHidden = false
         self.title = "Login"
-        view.backgroundColor = UIColor(red: 0.9608, green: 0.9686, blue: 1.0, alpha: 1.0)
+        view.backgroundColor = Color.backgroundView
         
         //MARK: Stack
         let stack = UIStackView(arrangedSubviews: [emailContainerView, passwordContainerView])

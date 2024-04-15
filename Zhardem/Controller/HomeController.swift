@@ -10,6 +10,9 @@ import UIKit
 class HomeController: UIViewController {
     
     //MARK: - Properties
+    
+    private var doctorCollectionView = DoctorCollectionView()
+    
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Find your desire health solution"
@@ -28,7 +31,7 @@ class HomeController: UIViewController {
     
     private lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
-        searchBar.placeholder = "Search doctor, drugs, articles..."
+        searchBar.placeholder = " Search doctor, drugs, articles..."
         searchBar.searchBarStyle = .minimal
         searchBar.layer.cornerRadius = 20
         searchBar.positionAdjustment(for: .search)
@@ -99,7 +102,40 @@ class HomeController: UIViewController {
     private lazy var scheduleDate: UILabel = {
         let label = UILabel()
         label.text = "Tue, Feb 21, 08:00am-10:00pm"
+        label.font = UIFont.systemFont(ofSize: 14)
         return label
+    }()
+    
+    // Top Doctor & See all
+    private lazy var doctorLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Top Doctor"
+        label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        return label
+    }()
+    
+    private lazy var seeAllButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("See all", for: .normal)
+        button.setTitleColor(Color.textColor, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+        return button
+    }()
+    
+    // Health article & See all
+    private lazy var articleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Health article"
+        label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        return label
+    }()
+    
+    private lazy var seeArticleButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("See all", for: .normal)
+        button.setTitleColor(Color.textColor, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+        return button
     }()
     
     
@@ -108,12 +144,13 @@ class HomeController: UIViewController {
         super.viewDidLoad()
         configureUI()
         addTarget()
+        //view.backgroundColor = .systemCyan
     }
     
     // MARK: - Add Target
     func addTarget() {
         googleMap.addTarget(self, action: #selector(handleGoogleMap), for: .touchUpInside)
-        
+        seeAllButton.addTarget(self, action: #selector(handleTopDoctor), for: .touchUpInside)
     }
     
     //MARK: - Selectors
@@ -121,12 +158,17 @@ class HomeController: UIViewController {
         let viewController = LocationController()
         navigationController?.pushViewController(viewController, animated: true)
     }
+    @objc func handleTopDoctor() {
+        let viewController = DoctorListController()
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
     
     //MARK: - Helpers
     func configureUI() {
         navigationController?.navigationBar.isHidden = false
         
-        //MARK: Stack
+        //MARK: StackViews
         let firstStack = UIStackView(arrangedSubviews: [titleLabel, googleMap])
         firstStack.axis = .horizontal
         firstStack.distribution = .fill
@@ -168,6 +210,35 @@ class HomeController: UIViewController {
                      left: view.leftAnchor,
                      right: view.rightAnchor,
                      paddingTop: 20, paddingLeft: 16, paddingRight: 16)
+        
+
+        let labelStack = UIStackView(arrangedSubviews: [doctorLabel, seeAllButton])
+        labelStack.axis = .horizontal
+        labelStack.distribution = .fill
+        labelStack.spacing = 16
+        view.addSubview(labelStack)
+        labelStack.anchor(top: scheduleStack.bottomAnchor,
+                     left: view.leftAnchor,
+                     right: view.rightAnchor,
+                     paddingTop: 16, paddingLeft: 16, paddingRight: 16)
+        
+        // Doctor Collection View
+        view.addSubview(doctorCollectionView)
+        doctorCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        doctorCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        doctorCollectionView.topAnchor.constraint(equalTo: labelStack.bottomAnchor).isActive = true
+        doctorCollectionView.setHeight(height: 200)
+        doctorCollectionView.set(cells: DoctorModel.fetchDoctor())
+
+        let articleStack = UIStackView(arrangedSubviews: [articleLabel, seeArticleButton])
+        articleStack.axis = .horizontal
+        articleStack.distribution = .fill
+        articleStack.spacing = 16
+        view.addSubview(articleStack)
+        articleStack.anchor(top: doctorCollectionView.bottomAnchor,
+                     left: view.leftAnchor,
+                     right: view.rightAnchor,
+                     paddingTop: 4, paddingLeft: 16, paddingRight: 16)
         
     }
 }

@@ -138,7 +138,7 @@ extension UIView {
     //  Upcoming Schedule
     func upcomingSchedule(imageDoctor: UIImage, imageBell: UIImage, calendarImg: UIImage, label: UILabel, labelText: UILabel) -> UIView {
         let view = UIView()
-        view.backgroundColor = UIColor(red: 0.894, green: 0.969, blue: 1.0, alpha: 1.0)
+        view.backgroundColor = Color.cardView
         layer.borderWidth = 1.0
         view.setHeight(height: 140)
         view.layer.cornerRadius = 10
@@ -164,7 +164,8 @@ extension UIView {
         viewTwo.backgroundColor = UIColor.white
         layer.borderWidth = 1.0
         viewTwo.setHeight(height: 30)
-        viewTwo.layer.cornerRadius = 8
+        viewTwo.layer.cornerRadius = 15
+        
         let calendarImage = UIImageView()
         calendarImage.image = calendarImg
         viewTwo.addSubview(calendarImage)
@@ -177,8 +178,30 @@ extension UIView {
                          right: viewTwo.rightAnchor,  paddingLeft: 8, paddingBottom: 8, paddingRight: 8)
         
         view.addSubview(viewTwo)
-        viewTwo.anchor(bottom: view.bottomAnchor, right: view.rightAnchor, paddingBottom: 8, paddingRight: 8)
+        viewTwo.anchor(bottom: view.bottomAnchor, right: view.rightAnchor, paddingBottom: 8, paddingRight: 16)
         
+        return view
+    }
+    
+    // Rating View
+    
+    func ratingView(image: UIImage, label: UILabel) -> UIView {
+        let view = UIView()
+        view.backgroundColor = Color.cardView
+        layer.borderWidth = 1.0
+        view.setHeight(height: 18)
+        view.layer.cornerRadius = 4
+        
+        let starImage = UIImageView()
+        starImage.image = image
+        starImage.contentMode = .scaleAspectFit
+        view.addSubview(starImage)
+        starImage.anchor(left: view.leftAnchor, paddingLeft: 4, width: 13, height: 13)
+        
+        view.addSubview(label)
+        label.numberOfLines = 0
+        label.font = UIFont(name: "Montserrat", size: 12)
+        label.anchor(left: starImage.rightAnchor, right: view.rightAnchor, paddingLeft: 4)
         return view
     }
 }

@@ -60,7 +60,7 @@ extension MainViewController {
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         loginButton.setTitle("Login", for: .normal)
         loginButton.titleLabel?.adjustsFontSizeToFitWidth = true
-        loginButton.backgroundColor = UIColor(red: 0.7255, green: 0.8627, blue: 0.9490, alpha: 1.0)
+        loginButton.backgroundColor = Color.authButton
         loginButton.layer.cornerRadius = 18
         loginButton.addTarget(self, action: #selector(didTapLogin), for: .touchUpInside)
         

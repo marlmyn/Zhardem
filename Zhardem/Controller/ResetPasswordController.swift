@@ -100,7 +100,7 @@ class ResetPasswordController: UIViewController {
     func configureUI() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = false
-        view.backgroundColor = UIColor(red: 0.9608, green: 0.9686, blue: 1.0, alpha: 1.0)
+        view.backgroundColor = Color.backgroundView
         
         //MARK:   Stack View
         let stack = UIStackView(arrangedSubviews: [textTitleLabel, subTitleLabel, segmentedControl])

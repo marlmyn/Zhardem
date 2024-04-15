@@ -19,10 +19,10 @@ class TabBarController: UITabBarController {
         let fourthViewController = ProfileController()
         
         //Set tab bar items and icons
-        firstViewController.tabBarItem = UITabBarItem(title: "", image: .home, tag: 0)
-        secondViewController.tabBarItem = UITabBarItem(title: "", image: .message, tag: 1)
-        thirdViewController.tabBarItem = UITabBarItem(title: "", image: .calendar, tag: 2)
-        fourthViewController.tabBarItem = UITabBarItem(title: "", image: .profile, tag: 3)
+        firstViewController.tabBarItem = UITabBarItem(title: "", image: Images.TabBar.home, tag: 0)
+        secondViewController.tabBarItem = UITabBarItem(title: "", image: Images.TabBar.messages, tag: 1)
+        thirdViewController.tabBarItem = UITabBarItem(title: "", image: Images.TabBar.calendar, tag: 2)
+        fourthViewController.tabBarItem = UITabBarItem(title: "", image: Images.TabBar.profile, tag: 3)
         
         self.setViewControllers([firstViewController,
                                      secondViewController,

@@ -18,6 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        window?.rootViewController = UINavigationController(rootViewController: PageViewController()) 
 //        window?.rootViewController = UINavigationController(rootViewController: HomeController()) 
         let tabBarController = TabBarController()
+        let pageViewVC = PageViewController()
         let navigationController = UINavigationController(rootViewController: tabBarController)
         window?.rootViewController = navigationController
         window?.backgroundColor = .systemBackground

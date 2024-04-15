@@ -26,7 +26,7 @@ class PageViewController: UIPageViewController {
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(red: 0.9608, green: 0.9686, blue: 1.0, alpha: 1.0)
+        view.backgroundColor = Color.backgroundView
         navigationController?.navigationBar.isHidden = true
 
         setup()
@@ -45,11 +45,11 @@ extension PageViewController {
         
         pageControl.addTarget(self, action: #selector(pageControlTapped), for: .valueChanged)
         
-        let page1 = OnboardingViewController(imageName: "onboarding1",
+        let page1 = OnboardingViewController(imageName: Images.Onboarding.onboarding1,
                                           descriptionText: "Remote call of qualified medical specialists")
-        let page2 = OnboardingViewController(imageName: "onboarding2",
+        let page2 = OnboardingViewController(imageName: Images.Onboarding.onboarding2,
                                           descriptionText: "Consult only with a doctor you trust")
-        let page3 = OnboardingViewController(imageName: "onboarding3",
+        let page3 = OnboardingViewController(imageName: Images.Onboarding.onboarding3,
                                           descriptionText: "Professional nurses for home injections and intravenous drips")
         let page4 = MainViewController()
         
@@ -75,7 +75,7 @@ extension PageViewController {
         
         nextButton.translatesAutoresizingMaskIntoConstraints = false
         nextButton.layer.cornerRadius = 30.0
-        nextButton.backgroundColor = UIColor(red: 0.7255, green: 0.8627, blue: 0.9490, alpha: 1.0)
+        nextButton.backgroundColor = Color.nextButton
 
         nextButton.setImage(UIImage(named: "arrowRight"), for: .normal)
         nextButton.addTarget(self, action: #selector(nextTapped(_:)), for: .primaryActionTriggered)
@@ -94,18 +94,17 @@ extension PageViewController {
             pageControl.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -60),
             pageControl.heightAnchor.constraint(equalToConstant: 20),
             
-            // Constraints for nextButton
-            // nextButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
-//            nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -40),
-            
+        
+            //Old
             nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -40),
             nextButton.heightAnchor.constraint(equalToConstant: 60),
             nextButton.widthAnchor.constraint(equalToConstant: 60),
             
+            //New Constrains
+          
+            
+            
             // Constraints for skipButton
-            // skipButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
-            //skipButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor, constant: 0)
-            //view.trailingAnchor.constraint(equalToSystemSpacingAfter: skipButton.trailingAnchor, multiplier: 2),
             skipButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -12)
             
         ])
@@ -113,7 +112,6 @@ extension PageViewController {
         //MARK: for Animations
         skipButtonTopAnchor = skipButton.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 2)
         pageControlBottomAnchor = pageControl.leftAnchor.constraint(equalToSystemSpacingAfter: view.safeAreaLayoutGuide.leftAnchor, multiplier: 2)
-//        nextButtonBottomAnchor = view.bottomAnchor.constraint(equalToSystemSpacingBelow: nextButton.safeAreaLayoutGuide.bottomAnchor, multiplier: 2)
         nextButtonBottomAnchor = nextButton.rightAnchor.constraint(equalToSystemSpacingAfter: view.safeAreaLayoutGuide.rightAnchor, multiplier: 2)
         
         

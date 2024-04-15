@@ -15,9 +15,9 @@ class OnboardingViewController: UIViewController {
     let descriptionLabel = UILabel()
 
     
-    init(imageName: String, descriptionText: String) {
+    init(imageName: UIImage, descriptionText: String) {
         super.init(nibName: nil, bundle: nil)
-        imageView.image = UIImage(named: imageName)
+        imageView.image = imageName
         descriptionLabel.text = descriptionText
     }
     
@@ -47,7 +47,7 @@ extension OnboardingViewController {
         descriptionLabel.font = UIFont.boldSystemFont(ofSize: 28)
         descriptionLabel.textAlignment = .center
         descriptionLabel.numberOfLines = 0
-        descriptionLabel.textColor = UIColor(red: 0, green: 0, blue: 0.5, alpha: 1)
+        descriptionLabel.textColor = Color.textColor
 
     }
     
