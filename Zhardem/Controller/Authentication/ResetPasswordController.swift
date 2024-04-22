@@ -33,8 +33,9 @@ class ResetPasswordController: UIViewController {
         let items = ["Email", "Phone"]
         let segmentedControl = UISegmentedControl(items: items)
         segmentedControl.selectedSegmentIndex = 0
-        segmentedControl.backgroundColor =  UIColor(red: 0.898, green: 0.906, blue: 0.922, alpha: 1.0)
-        segmentedControl.selectedSegmentTintColor = UIColor.white
+        segmentedControl.backgroundColor = Color.whiteGray
+        segmentedControl.selectedSegmentTintColor = Color.authButton
+        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
         segmentedControl.setHeight(height: 44)
         segmentedControl.layer.cornerRadius = 22
         return segmentedControl
@@ -42,7 +43,7 @@ class ResetPasswordController: UIViewController {
     
     //MARK: Email Container
     private lazy var emailContainerView: UIView = {
-        let view = UIView().inputContainerView(image: UIImage(named: "Email")!, textField: emailTextField)
+        let view = UIView().inputContainerView(image: Images.Authentication.email, textField: emailTextField)
         view.setHeight(height: 56)
         return view
     }()
@@ -100,7 +101,6 @@ class ResetPasswordController: UIViewController {
     func configureUI() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = false
-        view.backgroundColor = Color.backgroundView
         
         //MARK:   Stack View
         let stack = UIStackView(arrangedSubviews: [textTitleLabel, subTitleLabel, segmentedControl])
@@ -109,7 +109,6 @@ class ResetPasswordController: UIViewController {
         stack.spacing = 16
         view.addSubview(stack)
         stack.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 20, paddingLeft: 16, paddingRight: 16)
-        
         
         let secondStack = UIStackView(arrangedSubviews: [emailContainerView, resetPassword])
         secondStack.axis = .vertical

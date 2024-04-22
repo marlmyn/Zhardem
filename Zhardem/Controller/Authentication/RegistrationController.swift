@@ -14,20 +14,20 @@ class RegistrationController: UIViewController {
     private var customAlert = AlertController()
     
     private lazy var fullNameContainerView: UIView = {
-        let view = UIView().inputContainerView(image: UIImage(named: "user")!, textField: fullNameTextField)
+        let view = UIView().inputContainerView(image: Images.Authentication.user, textField: fullNameTextField)
         view.setHeight(height: 56)
         return view
     }()
     
     private lazy var emailContainerView: UIView = {
-        let view = UIView().inputContainerView(image: UIImage(named: "Email")!, textField: emailTextField)
+        let view = UIView().inputContainerView(image: Images.Authentication.email, textField: emailTextField)
         view.setHeight(height: 56)
         return view
     }()
     
     //MARK: Password Container
     private lazy var passwordContainerView: UIView = {
-        let view = UIView().inputContainerView(image: UIImage(named: "Password")!, textField: passwordTextField)
+        let view = UIView().inputContainerView(image: Images.Authentication.password, textField: passwordTextField)
         view.setHeight(height: 56)
         return view
     }()
@@ -152,7 +152,6 @@ class RegistrationController: UIViewController {
     func configureUI() {
         navigationController?.navigationBar.isHidden = false
         self.title = "Sign Up"
-        view.backgroundColor = Color.backgroundView
         
         //MARK: TapGestureRecognizer
         let gesture = UITapGestureRecognizer(target: self, action: #selector(didTapCheckbox))
