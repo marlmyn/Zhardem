@@ -1,47 +1,46 @@
 //
-//  DoctorCollectionView.swift
+//  ArticlesCollectionView.swift
 //  Zhardem
 //
-//  Created by Akmaral Ergesh on 13.04.2024.
+//  Created by Akmaral Ergesh on 29.04.2024.
 //
 
 import UIKit
-import Alamofire
-import Kingfisher
 
-class DoctorCollectionView: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class ArticlesCollectionView: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    var doctors = [DoctorModel]()
+    var articles = [ArticleModel]()
     
     init() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         super.init(frame: .zero, collectionViewLayout: layout)
+        
         setupCollectionView()
-        fetchTopDoctors()
+        fetchArticles() 
     }
     
     private func setupCollectionView() {
         delegate = self
         dataSource = self
-        register(DoctorCollectionViewCell.self, forCellWithReuseIdentifier: DoctorCollectionViewCell.reuseId)
+        register(ArticlesCollectionViewCell.self, forCellWithReuseIdentifier: ArticlesCollectionViewCell.reuseId)
         
         translatesAutoresizingMaskIntoConstraints = false
         
-        contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        contentInset = UIEdgeInsets(top: 4, left: 16, bottom: 4, right: 16)
         
         showsVerticalScrollIndicator = false
         showsHorizontalScrollIndicator = false
     }
     
-    private func fetchTopDoctors() {
+    private func fetchArticles() {
         let accessToken = TokenManager.tokenInstance.getToken()
         
-        APIManager.shareInstance.getDoctorList(accessToken: accessToken) { [weak self] result in
+        APIManager.shareInstance.getArticleList(accessToken: accessToken) { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
-                    case .success(let doctorList):
-                        self?.doctors = doctorList
+                    case .success(let articleList):
+                        self?.articles = articleList
                         self?.reloadData()
                     case .failure(let error):
                         print("Error fetching doctors: \(error)")
@@ -51,27 +50,26 @@ class DoctorCollectionView: UICollectionView, UICollectionViewDelegate, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return doctors.count
+        return articles.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = dequeueReusableCell(withReuseIdentifier: DoctorCollectionViewCell.reuseId, for: indexPath) as! DoctorCollectionViewCell
+        let cell = dequeueReusableCell(withReuseIdentifier: ArticlesCollectionViewCell.reuseId, for: indexPath) as! ArticlesCollectionViewCell
         
-        let doctor = doctors[indexPath.item]
-        cell.fullNameLabel.text = doctor.fullName
-        cell.specialLabel.text = doctor.specialization
-        cell.rateLabel.text = String(doctor.rating)
-        cell.distanceLabel.text = String(format: "%.2f km", doctor.distance)
-        if let imageUrl = URL(string: doctor.imagePath) {
-            cell.doctorImage.kf.setImage(with: imageUrl)
+        let article = articles[indexPath.item]
+        cell.articleTitle.text = article.title
+        cell.detailLabel.text = article.publicationDate
+        
+        if let imageUrl = URL(string: article.imagePath) {
+            cell.articleImage.kf.setImage(with: imageUrl)
         } else {
-            cell.doctorImage.image = UIImage(named: "defaultImage") // Fallback image
+            cell.articleImage.image = UIImage(named: "defaultImage") // Fallback image
         }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 120, height: frame.height * 0.85)
+        return CGSize(width: 356, height: 80)
     }
     
     
@@ -81,6 +79,5 @@ class DoctorCollectionView: UICollectionView, UICollectionViewDelegate, UICollec
     }
     
 }
-
 
 

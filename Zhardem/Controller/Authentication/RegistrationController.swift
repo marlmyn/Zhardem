@@ -90,6 +90,7 @@ class RegistrationController: UIViewController {
         configureUI()
         setupNavigationBar()
         addTarget()
+        self.hideKeyboardWhenTappedAround()
     }
     
     //MARK: - Add Target

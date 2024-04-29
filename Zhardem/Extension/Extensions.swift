@@ -95,9 +95,9 @@ extension UIView {
     //  Container for auth
     func inputContainerView(image: UIImage, textField: UITextField) -> UIView {
         let view = UIView()
-        view.backgroundColor = UIColor(red: 0.898, green: 0.906, blue: 0.922, alpha: 1.0)
-        layer.borderColor = UIColor.systemGray3.cgColor
-        layer.borderWidth = 1.0
+        view.backgroundColor = Color.whiteGray1
+        view.layer.borderColor = Color.whiteGray.cgColor
+        view.layer.borderWidth = 1.0
         view.setHeight(height: 56)
         view.layer.cornerRadius = 24
         let imageView = UIImageView()
@@ -129,14 +129,14 @@ extension UIView {
         view.addSubview(label)
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 12)
-        
-        label.anchor(top: imageView.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 4, paddingLeft: 4, paddingBottom: 4, paddingRight: 4)
+        label.textColor = .gray
+        label.anchor(top: imageView.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 8, paddingLeft: 4, paddingBottom: 4, paddingRight: 4)
         
         return view
     }
     
     //  Upcoming Schedule
-    func upcomingSchedule(imageDoctor: UIImage, imageBell: UIImage, calendarImg: UIImage, label: UILabel, labelText: UILabel) -> UIView {
+    func upcomingSchedule(imageDoctor: UIImage, imageBell: UIImage, calendarImg: UIImage, labelName: UILabel,labelSpec: UILabel, labelDate: UILabel) -> UIView {
         let view = UIView()
         view.backgroundColor = Color.cardView
         layer.borderWidth = 1.0
@@ -149,11 +149,16 @@ extension UIView {
         view.addSubview(doctorImages)
         doctorImages.anchor(top: view.topAnchor, left: view.leftAnchor, paddingTop: 22, paddingLeft: 14, width: 80, height: 80)
         
-        view.addSubview(label)
-        label.numberOfLines = 0
-        label.font = UIFont(name: "Montserrat", size: 20)
-        label.anchor(top: view.topAnchor, left: doctorImages.rightAnchor, right: view.rightAnchor,
+        view.addSubview(labelName)
+        labelName.numberOfLines = 0
+        labelName.font = UIFont(name: "Montserrat", size: 22)
+        labelName.anchor(top: view.topAnchor, left: doctorImages.rightAnchor, right: view.rightAnchor,
                      paddingTop: 22, paddingLeft: 16)
+        
+        view.addSubview(labelSpec)
+        labelSpec.numberOfLines = 0
+        labelSpec.anchor(top: labelName.topAnchor, left: doctorImages.rightAnchor, right: view.rightAnchor, paddingTop: 22, paddingLeft: 16)
+        
         
         let bellImages = UIImageView()
         bellImages.image = imageBell
@@ -172,9 +177,9 @@ extension UIView {
         calendarImage.centerY(inView: viewTwo)
         calendarImage.anchor(left: viewTwo.leftAnchor, paddingLeft: 8, width: 20, height: 20)
         
-        viewTwo.addSubview(labelText)
-        labelText.centerY(inView: viewTwo)
-        labelText.anchor(left: calendarImage.rightAnchor, bottom: viewTwo.bottomAnchor,
+        viewTwo.addSubview(labelDate)
+        labelDate.centerY(inView: viewTwo)
+        labelDate.anchor(left: calendarImage.rightAnchor, bottom: viewTwo.bottomAnchor,
                          right: viewTwo.rightAnchor,  paddingLeft: 8, paddingBottom: 8, paddingRight: 8)
         
         view.addSubview(viewTwo)

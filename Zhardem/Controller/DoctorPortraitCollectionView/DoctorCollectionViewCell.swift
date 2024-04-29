@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import Kingfisher
 
 class DoctorCollectionViewCell: UICollectionViewCell {
+   
 
     static let reuseId = "DoctorCollectionViewCell"
     
@@ -77,6 +79,7 @@ class DoctorCollectionViewCell: UICollectionViewCell {
         addSubview(locationImage)
         addSubview(distanceLabel)
         
+        
         doctorImage.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         doctorImage.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         doctorImage.topAnchor.constraint(equalTo: topAnchor, constant: 8).isActive = true
@@ -119,5 +122,6 @@ class DoctorCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
+    
 }

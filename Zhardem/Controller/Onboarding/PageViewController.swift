@@ -11,7 +11,7 @@ class PageViewController: UIPageViewController {
     
     //MARK: - Properties
     var pages = [UIViewController]()
-
+    
     //MARK: External controls
     let skipButton = UIButton()
     let nextButton = UIButton()
@@ -22,18 +22,18 @@ class PageViewController: UIPageViewController {
     var pageControlBottomAnchor: NSLayoutConstraint?
     var skipButtonTopAnchor: NSLayoutConstraint?
     var nextButtonBottomAnchor: NSLayoutConstraint?
-
+    
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Color.backgroundView
         navigationController?.navigationBar.isHidden = true
-
+        
         setup()
         style()
         layout()
     }
-
+    
 }
 
 //MARK: Setup PageController
@@ -46,11 +46,11 @@ extension PageViewController {
         pageControl.addTarget(self, action: #selector(pageControlTapped), for: .valueChanged)
         
         let page1 = OnboardingViewController(imageName: Images.Onboarding.onboarding1,
-                                          descriptionText: "Remote call of qualified medical specialists")
+                                             descriptionText: "Remote call of qualified medical specialists")
         let page2 = OnboardingViewController(imageName: Images.Onboarding.onboarding2,
-                                          descriptionText: "Consult only with a doctor you trust")
+                                             descriptionText: "Consult only with a doctor you trust")
         let page3 = OnboardingViewController(imageName: Images.Onboarding.onboarding3,
-                                          descriptionText: "Professional nurses for home injections and intravenous drips")
+                                             descriptionText: "Professional nurses for home injections and intravenous drips")
         let page4 = MainViewController()
         
         pages.append(page1)
@@ -71,16 +71,19 @@ extension PageViewController {
         skipButton.translatesAutoresizingMaskIntoConstraints = false
         skipButton.setTitleColor(.systemGray, for: .normal)
         skipButton.setTitle("Skip", for: .normal)
-        skipButton.addTarget(self, action: #selector(skipTapped(_:)), for: .primaryActionTriggered)
+       // skipButton.addTarget(self, action: #selector(skipTapped(_:)), for: .primaryActionTriggered)
         
         nextButton.translatesAutoresizingMaskIntoConstraints = false
         nextButton.layer.cornerRadius = 30.0
         nextButton.backgroundColor = Color.nextButton
-
-        nextButton.setImage(UIImage(named: "arrowRight"), for: .normal)
-        nextButton.addTarget(self, action: #selector(nextTapped(_:)), for: .primaryActionTriggered)
         
-                
+        nextButton.setImage(UIImage(named: "arrowRight"), for: .normal)
+       // nextButton.addTarget(self, action: #selector(nextTapped(_:)), for: .primaryActionTriggered)
+        
+        // В вашем методе setup или viewDidLoad
+        skipButton.addTarget(self, action: #selector(skipTapped), for: .touchUpInside)
+        nextButton.addTarget(self, action: #selector(nextTapped), for: .touchUpInside)
+
     }
     
     func layout() {
@@ -90,37 +93,33 @@ extension PageViewController {
         
         
         NSLayoutConstraint.activate([
-            // Constraints for pageControl
+            // Center pageControl horizontally in the view
+          
             pageControl.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -60),
             pageControl.heightAnchor.constraint(equalToConstant: 20),
             
-        
-            //Old
+            // Position nextButton to the right and bottom within the safe area
+            nextButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
             nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -40),
             nextButton.heightAnchor.constraint(equalToConstant: 60),
             nextButton.widthAnchor.constraint(equalToConstant: 60),
             
-            //New Constrains
-          
-            
-            
-            // Constraints for skipButton
-            skipButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -12)
-            
+            // Position skipButton to the top and trailing within the safe area
+          //  skipButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            skipButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -12),
         ])
         
         //MARK: for Animations
-        skipButtonTopAnchor = skipButton.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 2)
+        skipButtonTopAnchor = skipButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20)
         pageControlBottomAnchor = pageControl.leftAnchor.constraint(equalToSystemSpacingAfter: view.safeAreaLayoutGuide.leftAnchor, multiplier: 2)
-        nextButtonBottomAnchor = nextButton.rightAnchor.constraint(equalToSystemSpacingAfter: view.safeAreaLayoutGuide.rightAnchor, multiplier: 2)
-        
-        
-        
+      //  nextButtonBottomAnchor = nextButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20)
+       
+
         skipButtonTopAnchor?.isActive = true
         pageControlBottomAnchor?.isActive = true
         nextButtonBottomAnchor?.isActive = true
-       
-    
+        
+        
     }
     
 }
@@ -146,7 +145,7 @@ extension PageViewController: UIPageViewControllerDataSource {
             return pages.first               //wrap first
         }
     }
-   
+    
 }
 
 //MARK: - Delegate
@@ -174,22 +173,27 @@ extension PageViewController: UIPageViewControllerDelegate {
     }
     
     private func hideControls() {
-//        pageControlBottomAnchor?.constant = -80
-//        skipButtonTopAnchor?.constant = -80
-//        nextButtonBottomAnchor?.constant = -80
-        
-        pageControlBottomAnchor?.constant = -160 // Уменьшаем расстояние до нижнего края
-        skipButtonTopAnchor?.constant = -160 // Увеличиваем расстояние до верхнего края
-        nextButtonBottomAnchor?.constant = 160 // Уменьшаем расстояние до нижнего края
-        
-        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.pageControl.alpha = 0
+            self.skipButton.alpha = 0
+            self.nextButton.alpha = 0
+
+            self.view.layoutIfNeeded()
+        }, completion: { _ in
+            self.pageControl.removeFromSuperview()
+            self.skipButton.removeFromSuperview()
+            self.nextButton.removeFromSuperview()
+        })
     }
+
     
     private func showControls() {
         pageControlBottomAnchor?.constant = 16
         skipButtonTopAnchor?.constant = 16
         nextButtonBottomAnchor?.constant = 16
     }
+
+
 }
 
 //MARK: - Actions
@@ -207,9 +211,10 @@ extension PageViewController {
     }
     
     @objc func nextTapped(_ sender: UIButton) {
-        pageControl.currentPage = pages.count + 1
-        goToNextPage()
-        animateControlsIfNeeded()
+        let nextPage = pageControl.currentPage + 1
+           pageControl.currentPage = min(nextPage, pages.count - 1)
+           goToSpecificPage(index: pageControl.currentPage, ofViewControllers: pages)
+           animateControlsIfNeeded()
     }
 }
 
@@ -230,5 +235,11 @@ extension UIPageViewController {
     
     func goToSpecificPage(index: Int, ofViewControllers pages: [UIViewController]) {
         setViewControllers([pages[index]], direction: .forward, animated: true, completion: nil)
+    }
+}
+
+extension PageViewController {
+    static func shareInstance() -> PageViewController  {
+        return PageViewController()
     }
 }

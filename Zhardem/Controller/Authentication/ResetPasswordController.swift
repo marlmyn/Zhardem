@@ -67,6 +67,7 @@ class ResetPasswordController: UIViewController {
         configureUI()
         setupNavigationBar()
         addTarget()
+        self.hideKeyboardWhenTappedAround()
     }
     
     //MARK: - Selectors

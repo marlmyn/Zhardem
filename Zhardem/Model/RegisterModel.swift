@@ -12,3 +12,15 @@ struct RegisterModel: Encodable {
     let email: String
     let password: String
 }
+
+// MARK: - ResponseModel
+struct ResponseModel: Codable {
+    let accessToken, refreshToken: String
+    let userID: Int
+
+    enum CodingKeys: String, CodingKey {
+        case accessToken, refreshToken
+        case userID = "userId"
+    }
+}
+

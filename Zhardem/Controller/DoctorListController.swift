@@ -7,8 +7,13 @@
 
 import UIKit
 
-class DoctorListController: UIViewController {
+protocol TopDoctorCollectionViewDelegate: AnyObject {
+    func didSelectDoctor(_ doctor: DoctorModel)
+}
+
+class DoctorListController: UIViewController, TopDoctorCollectionViewDelegate {
     //MARK: - Properties
+    private var doctorCollectionView = TopDoctorCollectionView()
     
     
     //MARK: - LifeCycle
@@ -17,11 +22,16 @@ class DoctorListController: UIViewController {
 
        setupNavigationBar()
         configureUI()
+        
+        doctorCollectionView.doctorDelegate = self
     }
     
 
     //MARK: - Helpers
     func setupNavigationBar() {
+        navigationController?.navigationBar.isHidden = false
+        self.title = "Top Doctor"
+        
         let backImage = UIImage(resource: .back)
         let backButtonItem = UIBarButtonItem(image: backImage,
                                              style: .plain,
@@ -31,9 +41,20 @@ class DoctorListController: UIViewController {
         navigationItem.leftBarButtonItem?.tintColor = UIColor.black
     }
     
+    // Conforming to TopDoctorCollectionViewDelegate
+       func didSelectDoctor(_ doctor: DoctorModel) {
+           let detailViewController = DoctorDetailViewController()
+           detailViewController.doctor = doctor
+           navigationController?.pushViewController(detailViewController, animated: true)
+       }
+    
     func configureUI() {
-        navigationController?.navigationBar.isHidden = false
-        self.title = "Top Doctor"
+       
+        view.addSubview(doctorCollectionView)
+        doctorCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        doctorCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        doctorCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
+        doctorCollectionView.setHeight(height: 850)
     }
 
 }

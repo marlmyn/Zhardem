@@ -12,6 +12,7 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
+        
         //Create view controllers for each tab
         let firstViewController = HomeController()
         let secondViewController = MessageController()
@@ -32,5 +33,11 @@ class TabBarController: UITabBarController {
         tabBar.tintColor = UIColor(red: 0.7255, green: 0.8627, blue: 0.9490, alpha: 1.0)
         tabBar.backgroundColor = .white
         
+    }
+}
+
+extension TabBarController {
+    static func shareInstance() -> TabBarController {
+        return TabBarController()
     }
 }

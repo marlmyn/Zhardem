@@ -101,6 +101,7 @@ class LoginController: UIViewController {
         configureUI()
         setupNavigationBar()
         addTarget()
+        self.hideKeyboardWhenTappedAround()
     }
     
     // MARK: - Add Target
@@ -119,17 +120,28 @@ class LoginController: UIViewController {
         guard let password = passwordTextField.text else { return }
         
         let modelLogin = LoginModel(email: email, password: password)
-        APIManager.shareInstance.callingLoginAPI(login: modelLogin) { (result, str) in
-            if result {
-//                self.customAlert.showAlert(with: "Yeay! Welcome Back", messages: str, buttonTitle: "Go To Home", on: self)
-                let vc = TabBarController()
-                self.navigationController?.pushViewController(vc, animated: true)
-            } else {
-                self.errorLabel.text = str
+        APIManager.shareInstance.callingLoginAPI(login: modelLogin) { result in
+            DispatchQueue.main.async {
+                switch result {
+                    case .success(let responseModel):
+                        print("Login successful with userID: \(responseModel.userID)")
+                        TokenManager.tokenInstance.saveToken(token: responseModel.accessToken)
+                        
+                        let mainVC = TabBarController.shareInstance()
+                        self.navigationController?.pushViewController(mainVC, animated: true)
+                        
+                    case .failure(let error):
+                        switch error {
+                            case .custom(let message):
+                                print("Login error: \(message)")
+                        }
+                }
             }
         }
         print("Debug: \(email), \(password)")
     }
+    
+    
     
     @objc func showResetPasswordVC() {
         let viewController = ResetPasswordController()

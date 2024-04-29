@@ -7,32 +7,47 @@
 
 import UIKit
 
+struct Sections {
+    let title: String
+    let options: [ProfileOptions]
+}
+
+struct ProfileOptions {
+    let title: String
+    let icon: UIImage?
+    let handler: (() -> Void)
+}
+
 class ProfileController: UIViewController {
 
     //MARK: - Properties
-    
-    var items: [String] = []
+    var models = [Sections]()
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.backgroundColor = .systemBackground
+        tableView.backgroundColor = .white
         tableView.separatorColor = .systemGray
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        tableView.allowsSelection = false
+        tableView.register(ProfileTableViewCell.self, forCellReuseIdentifier: ProfileTableViewCell.identifier)
         return tableView
     }()
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = Color.cardView
         self.setupUI()
-        self.populateTableView()
+        self.configure()
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+        let tableViewHeader = TableViewHeader(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 300))
+        self.tableView.tableHeaderView = tableViewHeader
+        self.tableView.tableHeaderView?.backgroundColor = Color.authButton
+        tableView.separatorColor = Color.authButton
+        
     }
-    
-    
+  
     //MARK: - SetupUI
     private func setupUI() {
         self.view.addSubview(tableView)
@@ -40,26 +55,62 @@ class ProfileController: UIViewController {
         tableView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
     }
     
-    private func populateTableView() {
-        for number in  0...24 {
-            self.items.append(number.description)
-        }
+    func configure() {
+        models.append(Sections(title: "", options: [
+            ProfileOptions(title: "My Saved", icon: Images.Profile.icon1) {
+                print("handle")
+            },
+            ProfileOptions(title: "Appointment", icon: Images.Profile.icon2) {
+                
+            },
+            ProfileOptions(title: "Payment Method", icon: Images.Profile.icon3) {
+                
+            },
+            ProfileOptions(title: "FAQs", icon: Images.Profile.icon4) {
+                
+            },
+            ProfileOptions(title: "Logout", icon: Images.Profile.icon5) {
+                APIManager.shareInstance.callingLogoutAPI(vc: self)
+            }
+
+            ])
+        )
     }
-    
 }
 
+
+//MARK: - Extensions
 extension ProfileController: UITableViewDelegate, UITableViewDataSource {
+
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return models.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return models[section].options.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let title = self.items[indexPath.row]
-        cell.textLabel?.text = title
-        
+        let model = models[indexPath.section].options[indexPath.row]
+        guard let cell = tableView.dequeueReusableCell (
+            withIdentifier: ProfileTableViewCell.identifier,
+            for: indexPath
+        ) as? ProfileTableViewCell else {
+            return UITableViewCell()
+        }
+        cell.configure(with: model)
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let model = models[indexPath.section].options[indexPath.row]
+        model.handler()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
     
 }
