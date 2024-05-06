@@ -45,6 +45,11 @@
 		3AC9AAF82BCD983300CC3218 /* TopDoctorCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC9AAF72BCD983300CC3218 /* TopDoctorCollectionView.swift */; };
 		3AC9AAFA2BCD985300CC3218 /* TopDoctorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC9AAF92BCD985300CC3218 /* TopDoctorCollectionViewCell.swift */; };
 		3ACC462C2BE024EB0025EC12 /* DoctorDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC462B2BE024EB0025EC12 /* DoctorDetailViewController.swift */; };
+		3ACC462E2BE07DB10025EC12 /* DoctorCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC462D2BE07DB10025EC12 /* DoctorCardView.swift */; };
+		3ACC46312BE0911E0025EC12 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC46302BE0911E0025EC12 /* DateCollectionViewCell.swift */; };
+		3ACC46332BE091740025EC12 /* DateCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC46322BE091730025EC12 /* DateCollectionView.swift */; };
+		3ACC46362BE098790025EC12 /* TimeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC46352BE098790025EC12 /* TimeCollectionView.swift */; };
+		3ACC46382BE0988D0025EC12 /* TimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC46372BE0988D0025EC12 /* TimeCollectionViewCell.swift */; };
 		3ADAC4682BBB372700EA06FB /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADAC4672BBB372700EA06FB /* HomeController.swift */; };
 		3ADFCF322BC45C7D008503C4 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADFCF312BC45C7D008503C4 /* Router.swift */; };
 		3ADFCF362BC46ACF008503C4 /* MessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADFCF352BC46ACF008503C4 /* MessageController.swift */; };
@@ -117,6 +122,11 @@
 		3AC9AAF72BCD983300CC3218 /* TopDoctorCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopDoctorCollectionView.swift; sourceTree = "<group>"; };
 		3AC9AAF92BCD985300CC3218 /* TopDoctorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopDoctorCollectionViewCell.swift; sourceTree = "<group>"; };
 		3ACC462B2BE024EB0025EC12 /* DoctorDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorDetailViewController.swift; sourceTree = "<group>"; };
+		3ACC462D2BE07DB10025EC12 /* DoctorCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorCardView.swift; sourceTree = "<group>"; };
+		3ACC46302BE0911E0025EC12 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
+		3ACC46322BE091730025EC12 /* DateCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionView.swift; sourceTree = "<group>"; };
+		3ACC46352BE098790025EC12 /* TimeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCollectionView.swift; sourceTree = "<group>"; };
+		3ACC46372BE0988D0025EC12 /* TimeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCollectionViewCell.swift; sourceTree = "<group>"; };
 		3ADAC4672BBB372700EA06FB /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		3ADFCF312BC45C7D008503C4 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		3ADFCF352BC46ACF008503C4 /* MessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageController.swift; sourceTree = "<group>"; };
@@ -233,9 +243,26 @@
 			children = (
 				3AC9AAF72BCD983300CC3218 /* TopDoctorCollectionView.swift */,
 				3AC9AAF92BCD985300CC3218 /* TopDoctorCollectionViewCell.swift */,
-				3ACC462B2BE024EB0025EC12 /* DoctorDetailViewController.swift */,
 			);
 			path = DoctorLandscapeCollectionView;
+			sourceTree = "<group>";
+		};
+		3ACC462F2BE090D30025EC12 /* Date */ = {
+			isa = PBXGroup;
+			children = (
+				3ACC46302BE0911E0025EC12 /* DateCollectionViewCell.swift */,
+				3ACC46322BE091730025EC12 /* DateCollectionView.swift */,
+			);
+			path = Date;
+			sourceTree = "<group>";
+		};
+		3ACC46342BE098660025EC12 /* Time */ = {
+			isa = PBXGroup;
+			children = (
+				3ACC46352BE098790025EC12 /* TimeCollectionView.swift */,
+				3ACC46372BE0988D0025EC12 /* TimeCollectionViewCell.swift */,
+			);
+			path = Time;
 			sourceTree = "<group>";
 		};
 		3ADFCF2F2BC447EE008503C4 /* Helpers */ = {
@@ -374,6 +401,7 @@
 				3AAFD9882BA2EAA400DB4B96 /* CheckboxButton.swift */,
 				3A6802112BC56154009E56DB /* TextLabel.swift */,
 				3A6802132BC5A7EA009E56DB /* ImageView.swift */,
+				3ACC462D2BE07DB10025EC12 /* DoctorCardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -383,10 +411,13 @@
 			children = (
 				3AEAED682BD29C9400566D02 /* Onboarding */,
 				3AEAED692BD29CAE00566D02 /* Authentication */,
+				3AEAED6C2BD2A0DF00566D02 /* Profile */,
 				3AC9AAF52BCD96FC00CC3218 /* DoctorPortraitCollectionView */,
 				3AC9AAF62BCD977300CC3218 /* DoctorLandscapeCollectionView */,
 				3A14DC1C2BDD948300336A47 /* Articles */,
-				3AEAED6C2BD2A0DF00566D02 /* Profile */,
+				3ACC46342BE098660025EC12 /* Time */,
+				3ACC462B2BE024EB0025EC12 /* DoctorDetailViewController.swift */,
+				3ACC462F2BE090D30025EC12 /* Date */,
 				3A2BCFF62BC01107007AE5B0 /* AlertController.swift */,
 				3ADAC4672BBB372700EA06FB /* HomeController.swift */,
 				3AC9AAF32BCD895100CC3218 /* DoctorListController.swift */,
@@ -565,15 +596,18 @@
 				3A879C1D2B9F4E49000E283B /* Extensions.swift in Sources */,
 				3A6802142BC5A7EA009E56DB /* ImageView.swift in Sources */,
 				3AC46F7B2BDAE5A600500CC0 /* TokenManager.swift in Sources */,
+				3ACC46382BE0988D0025EC12 /* TimeCollectionViewCell.swift in Sources */,
 				3AEAED6B2BD2A0D600566D02 /* TableViewHeader.swift in Sources */,
 				3A2DC50D2BA8A1180095D279 /* AuthenticationViewModel.swift in Sources */,
 				3A14DC192BDD735700336A47 /* UIViewController + Extension.swift in Sources */,
 				3AE53AED2B8DB9ED00E66E46 /* AppDelegate.swift in Sources */,
 				3AE53AEF2B8DB9ED00E66E46 /* SceneDelegate.swift in Sources */,
 				3ACC462C2BE024EB0025EC12 /* DoctorDetailViewController.swift in Sources */,
+				3ACC46362BE098790025EC12 /* TimeCollectionView.swift in Sources */,
 				3A6802122BC56154009E56DB /* TextLabel.swift in Sources */,
 				3A7671E72BDEF4030080E8FE /* ArticlesCollectionView.swift in Sources */,
 				3A469ADF2BA458F600B92E0E /* ResetPasswordController.swift in Sources */,
+				3ACC46312BE0911E0025EC12 /* DateCollectionViewCell.swift in Sources */,
 				3A222D0D2BA049500096DC82 /* SocialButton.swift in Sources */,
 				3AAFD9892BA2EAA400DB4B96 /* CheckboxButton.swift in Sources */,
 				3A35D5642BC9AA1800A8B974 /* UIColor.swift in Sources */,
@@ -588,8 +622,10 @@
 				3A7671E52BDEF2EB0080E8FE /* ArticlesModel.swift in Sources */,
 				3A879C1A2B9EF899000E283B /* RegistrationController.swift in Sources */,
 				3AE0ED6E2BC7D95E0072CAD6 /* LocationController.swift in Sources */,
+				3ACC462E2BE07DB10025EC12 /* DoctorCardView.swift in Sources */,
 				3A879C182B9EF847000E283B /* LoginController.swift in Sources */,
 				3AC9AAF82BCD983300CC3218 /* TopDoctorCollectionView.swift in Sources */,
+				3ACC46332BE091740025EC12 /* DateCollectionView.swift in Sources */,
 				3A09CD912BCA6AFB0036E9D6 /* DoctorModel.swift in Sources */,
 				3A09CD952BCA6FAD0036E9D6 /* DoctorCollectionView.swift in Sources */,
 			);

@@ -121,4 +121,18 @@ class TopDoctorCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func configureUIWithDoctorDetails(with doctor: DoctorModel) {
+        fullNameLabel.text = doctor.fullName
+        specialLabel.text = doctor.specialization
+        rateLabel.text = String(doctor.rating)
+        distanceLabel.text = "\(doctor.distance) m away"
+        
+        if let imageUrl = URL(string: doctor.imagePath) {
+            doctorImage.kf.setImage(with: imageUrl)
+        } else {
+            doctorImage.image = UIImage(named: "defaultImage")
+        }
+    }
+    
 }

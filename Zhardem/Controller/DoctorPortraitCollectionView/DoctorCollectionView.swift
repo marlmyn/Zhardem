@@ -12,6 +12,7 @@ import Kingfisher
 class DoctorCollectionView: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     var doctors = [DoctorModel]()
+    weak var doctorDelegate: DoctorCollectionViewDelegate?
     
     init() {
         let layout = UICollectionViewFlowLayout()
@@ -75,6 +76,10 @@ class DoctorCollectionView: UICollectionView, UICollectionViewDelegate, UICollec
     }
     
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedDoctor = doctors[indexPath.item]
+        doctorDelegate?.didSelectDoctor(selectedDoctor)
+    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

@@ -6,14 +6,18 @@
 //
 
 import UIKit
+import Alamofire
+import Kingfisher
 
 protocol TopDoctorCollectionViewDelegate: AnyObject {
     func didSelectDoctor(_ doctor: DoctorModel)
 }
 
-class DoctorListController: UIViewController, TopDoctorCollectionViewDelegate {
+class DoctorListController: UIViewController{
     //MARK: - Properties
     private var doctorCollectionView = TopDoctorCollectionView()
+    
+
     
     
     //MARK: - LifeCycle
@@ -41,12 +45,7 @@ class DoctorListController: UIViewController, TopDoctorCollectionViewDelegate {
         navigationItem.leftBarButtonItem?.tintColor = UIColor.black
     }
     
-    // Conforming to TopDoctorCollectionViewDelegate
-       func didSelectDoctor(_ doctor: DoctorModel) {
-           let detailViewController = DoctorDetailViewController()
-           detailViewController.doctor = doctor
-           navigationController?.pushViewController(detailViewController, animated: true)
-       }
+   
     
     func configureUI() {
        
@@ -57,4 +56,14 @@ class DoctorListController: UIViewController, TopDoctorCollectionViewDelegate {
         doctorCollectionView.setHeight(height: 850)
     }
 
+}
+
+// MARK: -  Conforming to TopDoctorCollectionViewDelegate
+extension DoctorListController: TopDoctorCollectionViewDelegate {
+       func didSelectDoctor(_ doctor: DoctorModel) {
+         //  print("here are doctors \(doctor)")
+           let detailViewController = DoctorDetailViewController()
+           detailViewController.doctor = doctor
+           navigationController?.pushViewController(detailViewController, animated: true)
+       }
 }

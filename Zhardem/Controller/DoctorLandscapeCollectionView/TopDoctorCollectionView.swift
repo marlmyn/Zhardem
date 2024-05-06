@@ -57,6 +57,10 @@ class TopDoctorCollectionView: UICollectionView {
 }
 
 extension TopDoctorCollectionView: UICollectionViewDelegate, UICollectionViewDataSource {
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+//           return UIEdgeInsets(top: 1.0, left: 1.0, bottom: 1.0, right: 1.0)
+//       }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return doctors.count
     }
@@ -71,7 +75,7 @@ extension TopDoctorCollectionView: UICollectionViewDelegate, UICollectionViewDat
         if let imageUrl = URL(string: doctor.imagePath) {
             cell.doctorImage.kf.setImage(with: imageUrl)
         } else {
-            cell.doctorImage.image = UIImage(named: "defaultImage") // Fallback image
+            cell.doctorImage.image = UIImage(named: "defaultImage") 
         }
         return cell
         

@@ -7,12 +7,17 @@
 
 import UIKit
 
+protocol DoctorCollectionViewDelegate: AnyObject {
+    func didSelectDoctor(_ doctor: DoctorModel)
+}
+
 class HomeController: UIViewController {
     
     //MARK: - Properties
     
     private var doctorCollectionView = DoctorCollectionView()
     private var articleCollectionView = ArticlesCollectionView()
+    
     
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -176,7 +181,7 @@ class HomeController: UIViewController {
         configureUI()
         addTarget()
         self.hideKeyboardWhenTappedAround()
-        
+        doctorCollectionView.doctorDelegate = self
     }
     
     
@@ -303,4 +308,12 @@ class HomeController: UIViewController {
 }
 
 
-
+// MARK: -  Conforming to TopDoctorCollectionViewDelegate
+extension HomeController: DoctorCollectionViewDelegate {
+       func didSelectDoctor(_ doctor: DoctorModel) {
+          // print("here are doctors \(doctor)")
+           let detailViewController = DoctorDetailViewController()
+           detailViewController.doctor = doctor
+           navigationController?.pushViewController(detailViewController, animated: true)
+       }
+}

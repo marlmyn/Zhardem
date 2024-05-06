@@ -19,6 +19,8 @@ struct Images {
         static let user = UIImage(named: "user")!
         static let email = UIImage(named: "email")!
         static let password = UIImage(named: "password")!
+        static let buttonChat = UIImage(named: "buttonChat")!
+        
     }
     
     struct TabBar {

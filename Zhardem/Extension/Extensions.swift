@@ -209,4 +209,7 @@ extension UIView {
         label.anchor(left: starImage.rightAnchor, right: view.rightAnchor, paddingLeft: 4)
         return view
     }
+    
+    
+    
 }

@@ -13,6 +13,7 @@ class DoctorDetailViewController: UIViewController {
     
     //MARK: - Properties
     var doctor: DoctorModel?
+    private var customAlert = AlertController()
     
     private let doctorDetailView = DoctorCardView()
     private let dateCollectionView = DateCollectionView()
@@ -60,20 +61,20 @@ class DoctorDetailViewController: UIViewController {
     }()
     
     private lazy var bookingButton: UIButton = {
-    let button = UIButton()
-    button.translatesAutoresizingMaskIntoConstraints = false
-    button.setTitle("Book Appointment", for: .normal)
-    button.backgroundColor = Color.authButton
-    button.layer.cornerRadius = 22
-    button.setTitleColor(.white, for: .normal)
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Book Appointment", for: .normal)
+        button.backgroundColor = Color.authButton
+        button.layer.cornerRadius = 22
+        button.setTitleColor(.white, for: .normal)
         return button
     }()
-
+    
     private lazy var messageIcon: UIButton = {
         let button = UIButton()
         let image = Images.Authentication.buttonChat
         button.setImage(image, for: .normal)
-      //  button.setDimensions(height: 57, width: 57)
+        //  button.setDimensions(height: 57, width: 57)
         return button
     }()
     
@@ -87,7 +88,7 @@ class DoctorDetailViewController: UIViewController {
             configureUIWithDoctorDetails(with: doctor)
         }
         view.addSubview(timeCollectionView)
-        
+        addTarget()
     }
     
     
@@ -98,7 +99,12 @@ class DoctorDetailViewController: UIViewController {
     
     //MARK: - Selectors
     @objc func handleBooking() {
-        
+        self.customAlert.showAlert(with: "Booking Success",
+                                   messages: "Your booking has been successful!",
+                                   buttonTitle: "Done",
+                                   on: self) {
+            print("Your payment has been successful! ")
+        }
     }
     //MARK: - Helpers
     func setupNavigationBar() {
@@ -161,7 +167,7 @@ class DoctorDetailViewController: UIViewController {
             bookingButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             bookingButton.heightAnchor.constraint(equalToConstant: 50),
             bookingButton.widthAnchor.constraint(equalToConstant: 266),
-           
+            
             messageIcon.centerYAnchor.constraint(equalTo: bookingButton.centerYAnchor),
             messageIcon.trailingAnchor.constraint(equalTo: bookingButton.leadingAnchor, constant: -12),
             messageIcon.widthAnchor.constraint(equalToConstant: 50),
