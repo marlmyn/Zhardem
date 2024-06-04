@@ -9,12 +9,7 @@ import UIKit
 
 final class Router {
     let navigation = UINavigationController()
-//
-//    init(navigation: UINavigationController) {
-//        self.navigation = navigation
-//    }
-    
-    
+ 
     private func push(controller: UIViewController) {
         navigation.pushViewController(controller, animated: true)
     }
@@ -33,7 +28,6 @@ final class Router {
         navigation.navigationItem.leftBarButtonItem?.tintColor = UIColor.black
         
     }
-    
      func pushHomeViewController() {
         let controller = HomeController()
         push(controller: controller)

@@ -66,7 +66,6 @@ class LocationController: UIViewController {
 // MARK: - LocationServices
 
 extension LocationController: CLLocationManagerDelegate {
-    
     func enableLocationServices() {
         locationManager.delegate = self
         switch CLLocationManager().authorizationStatus {
@@ -86,21 +85,18 @@ extension LocationController: CLLocationManagerDelegate {
                 break
         }
     }
-    
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse {
             locationManager.requestAlwaysAuthorization()
             manager.startUpdatingLocation()
         }
     }
-    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
             manager.stopUpdatingLocation()
             render(location)
         }
     }
-    
     func render(_ location: CLLocation){
         let coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude,
                                                 longitude: location.coordinate.longitude)

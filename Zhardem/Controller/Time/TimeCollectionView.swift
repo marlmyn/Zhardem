@@ -43,32 +43,33 @@ class TimeCollectionView: UICollectionView, UICollectionViewDelegate, UICollecti
     
     // MARK: - UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-           return timeSlots.count
-       }
-       
-       func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TimeCollectionViewCell.reuseId, for: indexPath) as! TimeCollectionViewCell
-           let time = timeSlots[indexPath.item]
-           let isSelected = indexPath == selectedIndexPath
-           cell.configure(with: time, isSelected: isSelected)
-           return cell
-       }
+        return timeSlots.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TimeCollectionViewCell.reuseId, for: indexPath) as! TimeCollectionViewCell
+        let time = timeSlots[indexPath.item]
+        let isSelected = indexPath == selectedIndexPath
+        cell.configure(with: time, isSelected: isSelected)
+        return cell
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 110, height: 40)
     }
+    // MARK: - UICollectionViewDelegate
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let previouslySelectedIndexPath = selectedIndexPath
+        selectedIndexPath = indexPath
         
-        // MARK: - UICollectionViewDelegate
-        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            let previouslySelectedIndexPath = selectedIndexPath
-                selectedIndexPath = indexPath
-
-                var indexPathsToReload: [IndexPath] = [indexPath]
-                if let previous = previouslySelectedIndexPath, previous != indexPath {
-                    indexPathsToReload.append(previous)
-                }
-
-                collectionView.reloadItems(at: indexPathsToReload)
+        var indexPathsToReload: [IndexPath] = [indexPath]
+        if let previous = previouslySelectedIndexPath, previous != indexPath {
+            indexPathsToReload.append(previous)
         }
-
+        
+        collectionView.reloadItems(at: indexPathsToReload)
+    }
+    
 }
+
+

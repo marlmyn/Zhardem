@@ -12,8 +12,6 @@ enum APIError: Error {
     case custom(message: String)
 }
 
-//typealias Handler = (Swift.Result<Any?, APIError>) -> Void
-
 typealias Handler = (Result<ResponseModel, APIError>) -> Void
 
 class APIManager {
@@ -74,6 +72,51 @@ class APIManager {
         }
     }
     
+    // MARK: - verifyEmailAPI
+    func verifyEmailOTP(code: String, completion: @escaping (Result<OTPResponse, Error>) -> Void) {
+        let urlString = "https://zhadem-app-1.onrender.com/api/v1/auth/verify"
+        let parameters: [String: Any] = [
+            "code": code
+        ]
+        
+        let headers: HTTPHeaders = [
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+        ]
+        
+        AF.request(urlString, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+            .validate()
+            .response { response in
+                print("Response: \(response)")
+                switch response.result {
+                    case .success(let data):
+                        do {
+                            guard let data = data else {
+                                throw AFError.responseValidationFailed(reason: .dataFileNil)
+                            }
+                            let decoder = JSONDecoder()
+                            let otpResponse = try decoder.decode(OTPResponse.self, from: data)
+                            completion(.success(otpResponse))
+                        } catch {
+                            print("Decoding error: \(error)")
+                            completion(.failure(error))
+                        }
+                    case .failure(let error):
+                        if let data = response.data {
+                            let serverResponse = String(data: data, encoding: .utf8)
+                            print("Server response: \(String(describing: serverResponse))")
+                        }
+                        print("Request error: \(error)")
+                        completion(.failure(error))
+                }
+            }
+    }
+    
+    
+    
+    
+    
+    
     
     //MARK: - Logout
     func callingLogoutAPI(vc: UIViewController) {
@@ -102,7 +145,7 @@ class APIManager {
     
     //MARK: - Get Top Doctor
     func getDoctorList(accessToken: String, completion: @escaping (Result<[DoctorModel], Error>) -> Void) {
-        let urlString = "https://sea-lion-app-usoaj.ondigitalocean.app/api/v1/doctor/getTopDoctor"
+        let urlString = "https://zhadem-app-1.onrender.com/api/v1/doctor/getTopDoctor"
         
         let headers: HTTPHeaders = [
             "Accept": "application/json",
@@ -127,11 +170,11 @@ class APIManager {
                 }
             }
     }
-  
+    
     //MARK: - Get Articles
     
     func getArticleList(accessToken: String, completion: @escaping (Result<[ArticleModel], Error>) -> Void) {
-//        let urlString = "https://sea-lion-app-usoaj.ondigitalocean.app/api/v1/doctor/getTopDoctor"
+        //        let urlString = "https://sea-lion-app-usoaj.ondigitalocean.app/api/v1/doctor/getTopDoctor"
         
         let headers: HTTPHeaders = [
             "Accept": "application/json",
@@ -156,6 +199,8 @@ class APIManager {
                 }
             }
     }
+    
+    
     
 }
 

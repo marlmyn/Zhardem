@@ -37,7 +37,6 @@ class DoctorCollectionView: UICollectionView, UICollectionViewDelegate, UICollec
     
     private func fetchTopDoctors() {
         let accessToken = TokenManager.tokenInstance.getToken()
-        
         APIManager.shareInstance.getDoctorList(accessToken: accessToken) { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
@@ -57,7 +56,6 @@ class DoctorCollectionView: UICollectionView, UICollectionViewDelegate, UICollec
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = dequeueReusableCell(withReuseIdentifier: DoctorCollectionViewCell.reuseId, for: indexPath) as! DoctorCollectionViewCell
-        
         let doctor = doctors[indexPath.item]
         cell.fullNameLabel.text = doctor.fullName
         cell.specialLabel.text = doctor.specialization

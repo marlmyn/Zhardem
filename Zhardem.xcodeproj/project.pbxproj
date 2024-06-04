@@ -35,6 +35,7 @@
 		3A7671E72BDEF4030080E8FE /* ArticlesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7671E62BDEF4030080E8FE /* ArticlesCollectionView.swift */; };
 		3A7671E92BDEF41F0080E8FE /* ArticlesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7671E82BDEF41F0080E8FE /* ArticlesCollectionViewCell.swift */; };
 		3A81AAFF2BD7992800DE704B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 3A81AAFE2BD7992800DE704B /* Kingfisher */; };
+		3A86A65D2C0E2F6600FCD337 /* VerifyCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A86A65C2C0E2F6600FCD337 /* VerifyCodeViewController.swift */; };
 		3A879C182B9EF847000E283B /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A879C172B9EF847000E283B /* LoginController.swift */; };
 		3A879C1A2B9EF899000E283B /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A879C192B9EF899000E283B /* RegistrationController.swift */; };
 		3A879C1D2B9F4E49000E283B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A879C1C2B9F4E49000E283B /* Extensions.swift */; };
@@ -67,6 +68,7 @@
 		3AE53B102B8DB9EE00E66E46 /* ZhardemUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE53B0F2B8DB9EE00E66E46 /* ZhardemUITestsLaunchTests.swift */; };
 		3AEAED6B2BD2A0D600566D02 /* TableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEAED6A2BD2A0D600566D02 /* TableViewHeader.swift */; };
 		3AF03C692BD568DE00679339 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF03C682BD568DE00679339 /* ProfileTableViewCell.swift */; };
+		3AFDCAA42C0EF82200456A31 /* OTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFDCAA32C0EF82200456A31 /* OTPResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +114,7 @@
 		3A7671E42BDEF2EB0080E8FE /* ArticlesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesModel.swift; sourceTree = "<group>"; };
 		3A7671E62BDEF4030080E8FE /* ArticlesCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesCollectionView.swift; sourceTree = "<group>"; };
 		3A7671E82BDEF41F0080E8FE /* ArticlesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesCollectionViewCell.swift; sourceTree = "<group>"; };
+		3A86A65C2C0E2F6600FCD337 /* VerifyCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyCodeViewController.swift; sourceTree = "<group>"; };
 		3A879C172B9EF847000E283B /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		3A879C192B9EF899000E283B /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		3A879C1C2B9F4E49000E283B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -148,6 +151,7 @@
 		3AE53B0F2B8DB9EE00E66E46 /* ZhardemUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZhardemUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3AEAED6A2BD2A0D600566D02 /* TableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHeader.swift; sourceTree = "<group>"; };
 		3AF03C682BD568DE00679339 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		3AFDCAA32C0EF82200456A31 /* OTPResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -358,6 +362,7 @@
 				3A879C192B9EF899000E283B /* RegistrationController.swift */,
 				3A879C172B9EF847000E283B /* LoginController.swift */,
 				3A469ADE2BA458F600B92E0E /* ResetPasswordController.swift */,
+				3A86A65C2C0E2F6600FCD337 /* VerifyCodeViewController.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -379,6 +384,7 @@
 				3A3B1C962BBC83F400B5AD45 /* LoginModel.swift */,
 				3A09CD902BCA6AFB0036E9D6 /* DoctorModel.swift */,
 				3A7671E42BDEF2EB0080E8FE /* ArticlesModel.swift */,
+				3AFDCAA32C0EF82200456A31 /* OTPResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -581,6 +587,7 @@
 				3A09CD932BCA6CB30036E9D6 /* DoctorCollectionViewCell.swift in Sources */,
 				3ADFCF3C2BC471C5008503C4 /* TabBarController.swift in Sources */,
 				3A222D0B2BA02FA90096DC82 /* DividerView.swift in Sources */,
+				3A86A65D2C0E2F6600FCD337 /* VerifyCodeViewController.swift in Sources */,
 				3AC9AAF42BCD895100CC3218 /* DoctorListController.swift in Sources */,
 				3A3B1C952BBC6C4E00B5AD45 /* API.swift in Sources */,
 				3A44CBDB2B907719004A8B36 /* PageViewController.swift in Sources */,
@@ -607,6 +614,7 @@
 				3A6802122BC56154009E56DB /* TextLabel.swift in Sources */,
 				3A7671E72BDEF4030080E8FE /* ArticlesCollectionView.swift in Sources */,
 				3A469ADF2BA458F600B92E0E /* ResetPasswordController.swift in Sources */,
+				3AFDCAA42C0EF82200456A31 /* OTPResponse.swift in Sources */,
 				3ACC46312BE0911E0025EC12 /* DateCollectionViewCell.swift in Sources */,
 				3A222D0D2BA049500096DC82 /* SocialButton.swift in Sources */,
 				3AAFD9892BA2EAA400DB4B96 /* CheckboxButton.swift in Sources */,

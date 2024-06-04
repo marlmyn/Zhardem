@@ -42,9 +42,7 @@ class ScheduleController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        
     }
-    
     
     //MARK: - Helpers
     func configureUI() {
@@ -71,8 +69,5 @@ class ScheduleController: UIViewController {
                      right: view.rightAnchor,
                      paddingTop: 28, paddingLeft: 16, paddingRight: 16)
         
-        
     }
-
-
 }

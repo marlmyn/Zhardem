@@ -62,6 +62,7 @@ class AlertController: NSObject {
         titleLabel.textAlignment = .center
         alertView.addSubview(titleLabel)
         
+    
         let messageLabel = UILabel(frame: CGRect(x: 0,
                                                  y: 210,
                                                  width: alertView.frame.size.width,

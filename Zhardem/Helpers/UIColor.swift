@@ -17,3 +17,5 @@ struct Color {
     static let whiteGray = UIColor(displayP3Red: 242/255.0, green: 243/255.0, blue: 244/255.0, alpha: 1.0)
     static let whiteGray1 = UIColor(displayP3Red: 249/255.0, green: 250/255.0, blue: 251/255.0, alpha: 1.0)
 }
+
+

@@ -21,6 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             vc = TabBarController.shareInstance()
         } else {
             vc = PageViewController.shareInstance()
+            //vc = VerifyCodeViewController.shareInstance()
         }
         
         let navVC = UINavigationController(rootViewController: vc)

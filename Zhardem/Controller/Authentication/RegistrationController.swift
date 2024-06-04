@@ -112,7 +112,9 @@ class RegistrationController: UIViewController {
         let registerModel = RegisterModel(fullName: fullName, email: email, password: password)
         APIManager.shareInstance.callingRegisterAPI(register: registerModel) { (result, str) in
             if result {
-                self.customAlert.showAlert(with: "Success", messages: str, buttonTitle: "Login", on: self)
+                let verificationVC = VerifyCodeViewController()
+                //verificationVC.userId = userId
+                self.navigationController?.pushViewController(verificationVC, animated: true)
             } else {
                 print("Something error!")
             }
@@ -198,7 +200,6 @@ class RegistrationController: UIViewController {
     }
     
 }
-
 
 // MARK: - FormViewModel
 extension RegistrationController: FormViewModel {

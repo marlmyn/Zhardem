@@ -15,6 +15,7 @@ class TokenManager {
         userDefault.setValue(token, forKey: TokenKey.userLogin)
     }
     
+    
     func getToken() -> String {
         if let token = userDefault.object(forKey: TokenKey.userLogin) as? String {
             return token
