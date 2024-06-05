@@ -57,9 +57,6 @@ class TopDoctorCollectionView: UICollectionView {
 }
 
 extension TopDoctorCollectionView: UICollectionViewDelegate, UICollectionViewDataSource {
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//           return UIEdgeInsets(top: 1.0, left: 1.0, bottom: 1.0, right: 1.0)
-//       }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return doctors.count

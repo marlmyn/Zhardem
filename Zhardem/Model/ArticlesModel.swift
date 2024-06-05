@@ -13,3 +13,5 @@ struct ArticleModel: Codable {
 }
 
 typealias Articles = [ArticleModel]
+
+

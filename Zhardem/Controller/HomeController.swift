@@ -189,6 +189,7 @@ class HomeController: UIViewController {
     func addTarget() {
         googleMap.addTarget(self, action: #selector(handleGoogleMap), for: .touchUpInside)
         seeAllButton.addTarget(self, action: #selector(handleTopDoctor), for: .touchUpInside)
+        seeArticleButton.addTarget(self, action: #selector(handleArticles), for: .touchUpInside)
     }
     
     //MARK: - Selectors
@@ -198,6 +199,11 @@ class HomeController: UIViewController {
     }
     @objc func handleTopDoctor() {
         let viewController = DoctorListController()
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    @objc func handleArticles() {
+        let viewController = SeeArticlesController()
         navigationController?.pushViewController(viewController, animated: true)
     }
     
@@ -315,5 +321,6 @@ extension HomeController: DoctorCollectionViewDelegate {
            let detailViewController = DoctorDetailViewController()
            detailViewController.doctor = doctor
            navigationController?.pushViewController(detailViewController, animated: true)
+           navigationController?.navigationBar.isHidden = true
        }
 }

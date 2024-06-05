@@ -38,7 +38,6 @@ class DoctorCollectionView: UICollectionView, UICollectionViewDelegate, UICollec
     private func fetchTopDoctors() {
         if let accessToken = UserDefaults.standard.string(forKey: "AccessToken") {
             
-            //TokenManager.tokenInstance.getToken()
             print(accessToken)
             APIManager.shareInstance.getDoctorList(accessToken: accessToken) { [weak self] result in
                 DispatchQueue.main.async {

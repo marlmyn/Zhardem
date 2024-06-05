@@ -175,9 +175,7 @@ class APIManager {
     }
     
     //MARK: - Get Articles
-    
     func getArticleList(accessToken: String, completion: @escaping (Result<[ArticleModel], Error>) -> Void) {
-        //        let urlString = "https://sea-lion-app-usoaj.ondigitalocean.app/api/v1/doctor/getTopDoctor"
         
         let headers: HTTPHeaders = [
             "Accept": "application/json",
@@ -204,6 +202,58 @@ class APIManager {
     }
     
     
+    func getTrendArticle(accessToken: String, completion: @escaping (Result<[TrendArticleModel], Error>) -> Void) {
+        
+        let headers: HTTPHeaders = [
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+            "Authorization": "Bearer \(accessToken)"
+        ]
+        
+        AF.request(trendArticle_url, method: .get, headers: headers)
+            .validate()
+            .responseData { response in
+                switch response.result {
+                    case .success(let data):
+                        do {
+                            let decoder = JSONDecoder()
+                            let articleList = try decoder.decode([TrendArticleModel].self, from: data)
+                            completion(.success(articleList))
+                        } catch {
+                            completion(.failure(error))
+                        }
+                    case .failure(let error):
+                        completion(.failure(error))
+                }
+            }
+    }
     
+    
+    func getRelatedArticle(accessToken: String, completion: @escaping (Result<[RelatedArticleModel], Error>) -> Void) {
+        
+        let headers: HTTPHeaders = [
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+            "Authorization": "Bearer \(accessToken)"
+        ]
+        
+        AF.request(relatedArticle_url, method: .get, headers: headers)
+            .validate()
+            .responseData { response in
+                switch response.result {
+                    case .success(let data):
+                        do {
+                            let decoder = JSONDecoder()
+                            let articleList = try decoder.decode([RelatedArticleModel].self, from: data)
+                            completion(.success(articleList))
+                        } catch {
+                            completion(.failure(error))
+                        }
+                    case .failure(let error):
+                        completion(.failure(error))
+                }
+            }
+    }
+
 }
 

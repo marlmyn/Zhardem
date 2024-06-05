@@ -19,7 +19,7 @@ class DoctorDetailViewController: UIViewController {
     private let dateCollectionView = DateCollectionView()
     private let timeCollectionView = TimeCollectionView()
     
-    
+    //
     func configureUIWithDoctorDetails(with doctor: DoctorModel) {
         doctorDetailView.fullNameLabel.text = doctor.fullName
         doctorDetailView.specialLabel.text = doctor.specialization
