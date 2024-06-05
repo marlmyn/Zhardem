@@ -36,15 +36,19 @@ class DoctorCollectionView: UICollectionView, UICollectionViewDelegate, UICollec
     }
     
     private func fetchTopDoctors() {
-        let accessToken = TokenManager.tokenInstance.getToken()
-        APIManager.shareInstance.getDoctorList(accessToken: accessToken) { [weak self] result in
-            DispatchQueue.main.async {
-                switch result {
+        if let accessToken = UserDefaults.standard.string(forKey: "AccessToken") {
+            
+            //TokenManager.tokenInstance.getToken()
+            print(accessToken)
+            APIManager.shareInstance.getDoctorList(accessToken: accessToken) { [weak self] result in
+                DispatchQueue.main.async {
+                    switch result {
                     case .success(let doctorList):
                         self?.doctors = doctorList
                         self?.reloadData()
                     case .failure(let error):
                         print("Error fetching doctors: \(error)")
+                    }
                 }
             }
         }

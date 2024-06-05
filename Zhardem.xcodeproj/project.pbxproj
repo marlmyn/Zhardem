@@ -19,8 +19,6 @@
 		3A35D5642BC9AA1800A8B974 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A35D5632BC9AA1800A8B974 /* UIColor.swift */; };
 		3A3B1C8B2BBC664200B5AD45 /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B1C8A2BBC664200B5AD45 /* RegisterModel.swift */; };
 		3A3B1C8D2BBC670400B5AD45 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B1C8C2BBC670400B5AD45 /* APIManager.swift */; };
-		3A3B1C902BBC6A0100B5AD45 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3A3B1C8F2BBC6A0100B5AD45 /* Alamofire */; };
-		3A3B1C922BBC6A0100B5AD45 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 3A3B1C912BBC6A0100B5AD45 /* AlamofireDynamic */; };
 		3A3B1C952BBC6C4E00B5AD45 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B1C942BBC6C4E00B5AD45 /* API.swift */; };
 		3A3B1C972BBC83F400B5AD45 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B1C962BBC83F400B5AD45 /* LoginModel.swift */; };
 		3A44CBD72B9075D0004A8B36 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A44CBD62B9075D0004A8B36 /* OnboardingViewController.swift */; };
@@ -69,6 +67,7 @@
 		3AEAED6B2BD2A0D600566D02 /* TableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEAED6A2BD2A0D600566D02 /* TableViewHeader.swift */; };
 		3AF03C692BD568DE00679339 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF03C682BD568DE00679339 /* ProfileTableViewCell.swift */; };
 		3AFDCAA42C0EF82200456A31 /* OTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFDCAA32C0EF82200456A31 /* OTPResponse.swift */; };
+		54A2530A2C10511E0076B0B1 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 54A253092C10511E0076B0B1 /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +86,19 @@
 			remoteInfo = Zhardem;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		54A253082C1050EF0076B0B1 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3A09CD902BCA6AFB0036E9D6 /* DoctorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorModel.swift; sourceTree = "<group>"; };
@@ -160,8 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A81AAFF2BD7992800DE704B /* Kingfisher in Frameworks */,
-				3A3B1C902BBC6A0100B5AD45 /* Alamofire in Frameworks */,
-				3A3B1C922BBC6A0100B5AD45 /* AlamofireDynamic in Frameworks */,
+				54A2530A2C10511E0076B0B1 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,6 +464,7 @@
 				3AE53AE52B8DB9ED00E66E46 /* Sources */,
 				3AE53AE62B8DB9ED00E66E46 /* Frameworks */,
 				3AE53AE72B8DB9ED00E66E46 /* Resources */,
+				54A253082C1050EF0076B0B1 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -460,9 +472,8 @@
 			);
 			name = Zhardem;
 			packageProductDependencies = (
-				3A3B1C8F2BBC6A0100B5AD45 /* Alamofire */,
-				3A3B1C912BBC6A0100B5AD45 /* AlamofireDynamic */,
 				3A81AAFE2BD7992800DE704B /* Kingfisher */,
+				54A253092C10511E0076B0B1 /* Alamofire */,
 			);
 			productName = Zhardem;
 			productReference = 3AE53AE92B8DB9ED00E66E46 /* Zhardem.app */;
@@ -817,6 +828,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G3GHD95S4N;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Zhardem/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -844,6 +856,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G3GHD95S4N;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Zhardem/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -997,20 +1010,15 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		3A3B1C8F2BBC6A0100B5AD45 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3A3B1C8E2BBC6A0100B5AD45 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-		3A3B1C912BBC6A0100B5AD45 /* AlamofireDynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3A3B1C8E2BBC6A0100B5AD45 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = AlamofireDynamic;
-		};
 		3A81AAFE2BD7992800DE704B /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3A43B95A2BD796B80075C11F /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		54A253092C10511E0076B0B1 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3A3B1C8E2BBC6A0100B5AD45 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

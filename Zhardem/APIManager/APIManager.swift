@@ -80,11 +80,11 @@ class APIManager {
         ]
         
         let headers: HTTPHeaders = [
-            "Accept": "application/json",
-            "Content-Type": "application/json",
+            "Accept": "*/*",
+            "Connection": "keep-alive"
         ]
         
-        AF.request(urlString, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+        AF.request(urlString, method: .post, parameters: parameters, headers: headers)
             .validate()
             .response { response in
                 print("Response: \(response)")
@@ -96,6 +96,7 @@ class APIManager {
                             }
                             let decoder = JSONDecoder()
                             let otpResponse = try decoder.decode(OTPResponse.self, from: data)
+                            print(otpResponse)
                             completion(.success(otpResponse))
                         } catch {
                             print("Decoding error: \(error)")
@@ -147,9 +148,11 @@ class APIManager {
     func getDoctorList(accessToken: String, completion: @escaping (Result<[DoctorModel], Error>) -> Void) {
         let urlString = "https://zhadem-app-1.onrender.com/api/v1/doctor/getTopDoctor"
         
+        print("access:::::::  \(accessToken)")
         let headers: HTTPHeaders = [
-            "Accept": "application/json",
-            "Content-Type": "application/json",
+            "Accept": "*/*",
+            "Content-Type": "*/*",
+            "Connection": "keep-alive",
             "Authorization": "Bearer \(accessToken)"
         ]
         

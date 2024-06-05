@@ -34,16 +34,17 @@ class ArticlesCollectionView: UICollectionView, UICollectionViewDelegate, UIColl
     }
     
     private func fetchArticles() {
-        let accessToken = TokenManager.tokenInstance.getToken()
-        
-        APIManager.shareInstance.getArticleList(accessToken: accessToken) { [weak self] result in
-            DispatchQueue.main.async {
-                switch result {
+        // let accessToken = TokenManager.tokenInstance.getToken()
+        if let accessToken = UserDefaults.standard.string(forKey: "AccessToken") {
+            APIManager.shareInstance.getArticleList(accessToken: accessToken) { [weak self] result in
+                DispatchQueue.main.async {
+                    switch result {
                     case .success(let articleList):
                         self?.articles = articleList
                         self?.reloadData()
                     case .failure(let error):
                         print("Error fetching doctors: \(error)")
+                    }
                 }
             }
         }
