@@ -1,15 +1,13 @@
 //
-//  DoctorDetailViewController.swift
+//  BookingDoctorViewController.swift
 //  Zhardem
 //
-//  Created by Akmaral Ergesh on 29.04.2024.
+//  Created by Akmaral Ergesh on 06.06.2024.
 //
 
 import UIKit
 
-let doctorReuseId = "TopDoctorCollectionViewCell"
-
-class DoctorDetailViewController: UIViewController {
+class BookingDoctorViewController: UIViewController {
     
     //MARK: - Properties
     var doctor: DoctorModel?
@@ -80,6 +78,7 @@ class DoctorDetailViewController: UIViewController {
     
     
     //MARK: - LifeCycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
@@ -87,10 +86,9 @@ class DoctorDetailViewController: UIViewController {
         if let doctor = doctor {
             configureUIWithDoctorDetails(with: doctor)
         }
-        view.addSubview(timeCollectionView)
+        // view.addSubview(timeCollectionView)
         addTarget()
     }
-    
     
     // MARK: - Add Target
     func addTarget() {
@@ -109,7 +107,7 @@ class DoctorDetailViewController: UIViewController {
     //MARK: - Helpers
     func setupNavigationBar() {
         navigationController?.navigationBar.isHidden = false
-        self.title = "Top Doctor"
+        self.title = "Appointment"
         
         let backImage = UIImage(resource: .back)
         let backButtonItem = UIBarButtonItem(image: backImage,
@@ -143,39 +141,6 @@ class DoctorDetailViewController: UIViewController {
                      right: view.rightAnchor,
                      paddingTop: 16, paddingLeft: 16, paddingRight: 16)
         
-        view.addSubview(dateCollectionView)
-        dateCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        dateCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        dateCollectionView.topAnchor.constraint(equalTo: stack.bottomAnchor, constant: 16).isActive = true
-        dateCollectionView.setHeight(height: 100)
         
-        view.addSubview(timeCollectionView)
-        timeCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            timeCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            timeCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            timeCollectionView.topAnchor.constraint(equalTo: dateCollectionView.bottomAnchor, constant: 20),
-            timeCollectionView.heightAnchor.constraint(equalToConstant: 150)
-        ])
-        
-        view.addSubview(bookingButton)
-        view.addSubview(messageIcon)
-        bookingButton.translatesAutoresizingMaskIntoConstraints = false
-        messageIcon.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            bookingButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
-            bookingButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            bookingButton.heightAnchor.constraint(equalToConstant: 50),
-            bookingButton.widthAnchor.constraint(equalToConstant: 266),
-            
-            messageIcon.centerYAnchor.constraint(equalTo: bookingButton.centerYAnchor),
-            messageIcon.trailingAnchor.constraint(equalTo: bookingButton.leadingAnchor, constant: -12),
-            messageIcon.widthAnchor.constraint(equalToConstant: 50),
-            messageIcon.heightAnchor.constraint(equalToConstant: 50),
-        ])
     }
-    
-    
 }
-
-

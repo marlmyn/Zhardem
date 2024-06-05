@@ -16,6 +16,9 @@
 		3A222D0D2BA049500096DC82 /* SocialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A222D0C2BA049500096DC82 /* SocialButton.swift */; };
 		3A2BCFF72BC01107007AE5B0 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2BCFF62BC01107007AE5B0 /* AlertController.swift */; };
 		3A2DC50D2BA8A1180095D279 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2DC50C2BA8A1180095D279 /* AuthenticationViewModel.swift */; };
+		3A3412202C110AFF003A610B /* BookingDoctorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A34121F2C110AFF003A610B /* BookingDoctorViewController.swift */; };
+		3A3412222C11103F003A610B /* RatingButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3412212C11103F003A610B /* RatingButtonView.swift */; };
+		3A3412242C11177B003A610B /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3412232C11177B003A610B /* ReviewViewController.swift */; };
 		3A35D5642BC9AA1800A8B974 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A35D5632BC9AA1800A8B974 /* UIColor.swift */; };
 		3A3B1C8B2BBC664200B5AD45 /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B1C8A2BBC664200B5AD45 /* RegisterModel.swift */; };
 		3A3B1C8D2BBC670400B5AD45 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B1C8C2BBC670400B5AD45 /* APIManager.swift */; };
@@ -120,6 +123,9 @@
 		3A222D0C2BA049500096DC82 /* SocialButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialButton.swift; sourceTree = "<group>"; };
 		3A2BCFF62BC01107007AE5B0 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		3A2DC50C2BA8A1180095D279 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		3A34121F2C110AFF003A610B /* BookingDoctorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingDoctorViewController.swift; sourceTree = "<group>"; };
+		3A3412212C11103F003A610B /* RatingButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingButtonView.swift; sourceTree = "<group>"; };
+		3A3412232C11177B003A610B /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		3A35D5632BC9AA1800A8B974 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		3A3B1C8A2BBC664200B5AD45 /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
 		3A3B1C8C2BBC670400B5AD45 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
@@ -439,6 +445,15 @@
 			path = RelatedArticlesView;
 			sourceTree = "<group>";
 		};
+		3AFCF6D32C110A4400C251E0 /* BookingSystemView */ = {
+			isa = PBXGroup;
+			children = (
+				3ACC462B2BE024EB0025EC12 /* DoctorDetailViewController.swift */,
+				3A34121F2C110AFF003A610B /* BookingDoctorViewController.swift */,
+			);
+			path = BookingSystemView;
+			sourceTree = "<group>";
+		};
 		3AFDA6BF2B8F452C007E135B /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -473,6 +488,7 @@
 				3A6802112BC56154009E56DB /* TextLabel.swift */,
 				3A6802132BC5A7EA009E56DB /* ImageView.swift */,
 				3ACC462D2BE07DB10025EC12 /* DoctorCardView.swift */,
+				3A3412212C11103F003A610B /* RatingButtonView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -487,7 +503,7 @@
 				3AC9AAF62BCD977300CC3218 /* DoctorLandscapeCollectionView */,
 				3A14DC1C2BDD948300336A47 /* Articles */,
 				3ACC46342BE098660025EC12 /* Time */,
-				3ACC462B2BE024EB0025EC12 /* DoctorDetailViewController.swift */,
+				3AFCF6D32C110A4400C251E0 /* BookingSystemView */,
 				3ACC462F2BE090D30025EC12 /* Date */,
 				3A2BCFF62BC01107007AE5B0 /* AlertController.swift */,
 				3ADAC4672BBB372700EA06FB /* HomeController.swift */,
@@ -496,6 +512,7 @@
 				3ADFCF372BC46AE2008503C4 /* ScheduleController.swift */,
 				3ADFCF3B2BC471C5008503C4 /* TabBarController.swift */,
 				3AE0ED6D2BC7D95E0072CAD6 /* LocationController.swift */,
+				3A3412232C11177B003A610B /* ReviewViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -661,6 +678,7 @@
 				3A222D092BA0246D0096DC82 /* AuthButton.swift in Sources */,
 				3ADFCF3A2BC46AF5008503C4 /* ProfileController.swift in Sources */,
 				3A7671E92BDEF41F0080E8FE /* ArticlesCollectionViewCell.swift in Sources */,
+				3A3412202C110AFF003A610B /* BookingDoctorViewController.swift in Sources */,
 				3AF03C692BD568DE00679339 /* ProfileTableViewCell.swift in Sources */,
 				3A2BCFF72BC01107007AE5B0 /* AlertController.swift in Sources */,
 				3A44CBD72B9075D0004A8B36 /* OnboardingViewController.swift in Sources */,
@@ -700,6 +718,7 @@
 				3A3B1C8B2BBC664200B5AD45 /* RegisterModel.swift in Sources */,
 				3A879C1F2B9F76D6000E283B /* CustomTextFiels.swift in Sources */,
 				3A7671E52BDEF2EB0080E8FE /* ArticlesModel.swift in Sources */,
+				3A3412222C11103F003A610B /* RatingButtonView.swift in Sources */,
 				3A879C1A2B9EF899000E283B /* RegistrationController.swift in Sources */,
 				3AE0ED6E2BC7D95E0072CAD6 /* LocationController.swift in Sources */,
 				3AFCF6C52C10F86600C251E0 /* TrendingArticlesCollectionView.swift in Sources */,
@@ -708,6 +727,7 @@
 				3AC9AAF82BCD983300CC3218 /* TopDoctorCollectionView.swift in Sources */,
 				3ACC46332BE091740025EC12 /* DateCollectionView.swift in Sources */,
 				3AFCF6D02C10FEDD00C251E0 /* RelatedArticleModel.swift in Sources */,
+				3A3412242C11177B003A610B /* ReviewViewController.swift in Sources */,
 				3A09CD912BCA6AFB0036E9D6 /* DoctorModel.swift in Sources */,
 				3AFCF6BE2C10D7DC00C251E0 /* PopularArticlesCollectionViewCell.swift in Sources */,
 				3A09CD952BCA6FAD0036E9D6 /* DoctorCollectionView.swift in Sources */,
