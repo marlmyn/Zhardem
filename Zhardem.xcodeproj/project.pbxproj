@@ -19,6 +19,7 @@
 		3A3412202C110AFF003A610B /* BookingDoctorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A34121F2C110AFF003A610B /* BookingDoctorViewController.swift */; };
 		3A3412222C11103F003A610B /* RatingButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3412212C11103F003A610B /* RatingButtonView.swift */; };
 		3A3412242C11177B003A610B /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3412232C11177B003A610B /* ReviewViewController.swift */; };
+		3A3412262C112078003A610B /* EvaluateReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3412252C112078003A610B /* EvaluateReviewViewController.swift */; };
 		3A35D5642BC9AA1800A8B974 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A35D5632BC9AA1800A8B974 /* UIColor.swift */; };
 		3A3B1C8B2BBC664200B5AD45 /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B1C8A2BBC664200B5AD45 /* RegisterModel.swift */; };
 		3A3B1C8D2BBC670400B5AD45 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B1C8C2BBC670400B5AD45 /* APIManager.swift */; };
@@ -126,6 +127,7 @@
 		3A34121F2C110AFF003A610B /* BookingDoctorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingDoctorViewController.swift; sourceTree = "<group>"; };
 		3A3412212C11103F003A610B /* RatingButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingButtonView.swift; sourceTree = "<group>"; };
 		3A3412232C11177B003A610B /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
+		3A3412252C112078003A610B /* EvaluateReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluateReviewViewController.swift; sourceTree = "<group>"; };
 		3A35D5632BC9AA1800A8B974 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		3A3B1C8A2BBC664200B5AD45 /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
 		3A3B1C8C2BBC670400B5AD45 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
@@ -513,6 +515,7 @@
 				3ADFCF3B2BC471C5008503C4 /* TabBarController.swift */,
 				3AE0ED6D2BC7D95E0072CAD6 /* LocationController.swift */,
 				3A3412232C11177B003A610B /* ReviewViewController.swift */,
+				3A3412252C112078003A610B /* EvaluateReviewViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -693,6 +696,7 @@
 				3A2DC50D2BA8A1180095D279 /* AuthenticationViewModel.swift in Sources */,
 				3AFCF6C92C10F9C700C251E0 /* TrendArticleModel.swift in Sources */,
 				3A14DC192BDD735700336A47 /* UIViewController + Extension.swift in Sources */,
+				3A3412262C112078003A610B /* EvaluateReviewViewController.swift in Sources */,
 				3AE53AED2B8DB9ED00E66E46 /* AppDelegate.swift in Sources */,
 				3AE53AEF2B8DB9ED00E66E46 /* SceneDelegate.swift in Sources */,
 				3ACC462C2BE024EB0025EC12 /* DoctorDetailViewController.swift in Sources */,

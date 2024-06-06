@@ -128,7 +128,7 @@ class VerifyCodeViewController: UIViewController {
     }
     
     private func navigateToNextScreen() {
-        let homeViewController = HomeController()
+        let homeViewController = TabBarController()
         self.navigationItem.hidesBackButton = true
         navigationController?.pushViewController(homeViewController, animated: true)
     }
